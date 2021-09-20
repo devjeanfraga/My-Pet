@@ -1,0 +1,8 @@
+{
+  "name": "My_Pet",
+  "version": "1.0.0",
+  "description": "Api que efetua CRUD para uma Clínica Veterinária/ Api that performs CRUD for a veterinary clinic",
+  "main": "index.js",
+  "author": "Jean Fraga <jeanfragoli395@gmail.com>",
+  "license": "MIT"
+}
