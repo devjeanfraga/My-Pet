@@ -6,3 +6,5 @@ const app = express()
 routes(app)
 
 app.listen(3838, () => console.log(' Api run !!!'))
+
+module.exports= app
