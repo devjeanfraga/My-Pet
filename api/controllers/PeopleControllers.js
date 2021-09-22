@@ -3,50 +3,51 @@ const peopleServices = new PeopleServices('People')
 
 class PeopleControllers {
 
-  static async createData (req, res) {
+  static async createPeople (req, res) {
     const shape = req.body
     try {
       const newData = await peopleServices.criar(shape)
       return res.status(201).json(newData) 
     }catch (err) {
-      console.log(JSON.stringify(err))
+      console.log(err.message)
+      return res.status(500).json(err.message)
     }
   }
 
-  static async getAlldata (req, res) {
+  static async getAllPeople (req, res) {
       try{
         const allPeople =  await peopleServices.pegarTodos()
         return res.status(200).json(allPeople)
       }catch (err) {
-        console.log(err)
-        return res.status(500).json(err)
+        console.log(err.message)
+        return res.status(500).json(err.message)
       }
   }
 
-  static async getOneData (req, res) {
+  static async getOnePeople (req, res) {
     const {peopleId} = req.params
     try{
       const onePeople = await peopleServices.pegarUm(Number(peopleId))
       return res.status(200).json(onePeople)
     }catch (err) {
-      console.log(err)
-      return res.status(500).json(err)
+      console.log(err.message)
+      return res.status(500).json(err.message)
     }
   }
 
-  static async resetData ( req, res) {
+  static async resetPeople ( req, res) {
     const  { peopleId } =  req.params
-    const shape = req.body
+    const infosBody = req.body
     try {
-      const updated=  await peopleServices.atualizarPeople(shape, Number(peopleId))
-       return res.status(200).json(updated)
+      const peopleUpdated=  await peopleServices.atualizarPeople(infosBody, Number(peopleId))
+       return res.status(200).json(peopleUpdated)
     }catch (err) {
-      console.log(err)
-      return res.status(500).json(err)
+      console.log(err.message)
+      return res.status(500).json(err.message)
     }
   }
 
-  static async remove(req, res ) {
+  static async removePeople(req, res ) {
      const {peopleId} = req.params
      try{
           await peopleServices.deletar(Number(peopleId))

@@ -1,9 +1,11 @@
+
 const database = require('../models')
 const Services =  require('./Services')
 
 class People extends Services {
   constructor () {
     super('People')
+    //this.pets = new Services('Pets')
   }
   
   async atualizarPeople (body, peopleId) {

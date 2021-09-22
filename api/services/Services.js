@@ -11,8 +11,8 @@ class Services {
     //INSERT INTO `People` (`id`,`name`,`phone`,`email`,`active`,`appointment`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?); 
   }
 
-  async pegarTodos () {
-    return database[this.modelName].findAll()
+  async pegarTodos (where = {}) {
+    return database[this.modelName].findAll({where: {...where}})
     // SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People`;
   }
 
@@ -35,6 +35,10 @@ class Services {
     return database[this.modelName].destroy({where: {id: id}})
   // DELETE FROM `People` WHERE `id` = 16
   // SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People`;
+  }
+
+  async econtrarEContar (where = {}, agregadores) {
+    return database[this.modelName].findAndCountAll({where: {...where}, ...agregadores} )
   }
 }
 
