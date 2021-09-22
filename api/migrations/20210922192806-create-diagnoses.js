@@ -9,10 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       description: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
-      ownerPet_ID: {
+      FK_Pets_Diagnoses: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {model: 'Pets', key: 'id'}
+      },
+      FK_People_Diagnoses: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {model: 'People', key: 'id'}

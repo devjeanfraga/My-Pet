@@ -43,11 +43,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'Sizes', key: 'id'}
       },
-      diagnostic_ID: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {model: 'Diagnoses', key: 'id'}
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

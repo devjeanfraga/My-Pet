@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'size_ID'
       })
 
-      Pets.belongsTo(models.Diagnoses,{
-        foreignKey: 'diagnostic_ID'
+      Pets.hasMany(models.Diagnoses, {
+       foreignKey: 'FK_Pets_Diagnoses'
       })
     }
   };

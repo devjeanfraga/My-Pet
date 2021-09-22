@@ -49,6 +49,19 @@ class PetsControllers {
     }
   }
 
+ static async getOnePet (req, res) {
+    const { petsId } = req.params
+    try {
+      const pet =await petsServices.pegarUm(petsId)
+      return res.status(200).json(pet)
+    }catch (err) {
+      console.log(err.message)
+      return res.status(500).json(err.message)
+    }
+
+  }
+
+
   static async getPetsByOwner (req, res) {
     const {peopleId} = req.params
     try {

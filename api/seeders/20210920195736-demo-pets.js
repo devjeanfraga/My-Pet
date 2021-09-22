@@ -13,7 +13,6 @@ module.exports = {
         owner_ID: 4,
         type_ID: 1,
         size_ID: 3,
-        diagnostic_ID: 4,
         createdAt: new Date(),
         updatedAt: new Date()  
       },
@@ -27,7 +26,6 @@ module.exports = {
         owner_ID: 2,
         type_ID: 1,
         size_ID: 2,
-        diagnostic_ID: 5,
         createdAt: new Date(),
         updatedAt: new Date() 
       },
@@ -41,7 +39,6 @@ module.exports = {
         owner_ID: 3,
         type_ID: 3,
         size_ID: 1,
-        diagnostic_ID: 1,
         createdAt: new Date(),
         updatedAt: new Date() 
       },
@@ -55,7 +52,6 @@ module.exports = {
         owner_ID: 3,
         type_ID: 2,
         size_ID: 2,
-        diagnostic_ID: 2,
         createdAt: new Date(),
         updatedAt: new Date() 
       },

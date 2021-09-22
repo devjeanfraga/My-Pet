@@ -2,51 +2,66 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-
     await queryInterface.bulkInsert('Diagnoses', [
       {
         description: 'Pata lesionada',
-        ownerPet_ID: 3,
+        FK_Pets_Diagnoses: 1,
+        FK_People_Diagnoses: 3,
+        createdAt: new Date(),
+        updatedAt: new Date() 
+      },
+      {
+        description: 'Unhas longas',
+        FK_Pets_Diagnoses: 4,
+        FK_People_Diagnoses: 3,
         createdAt: new Date(),
         updatedAt: new Date() 
       },
 
       {
         description: 'Olhos avermelhados',
-        ownerPet_ID: 3,
+        FK_Pets_Diagnoses: 2,
+        FK_People_Diagnoses: 3,
         createdAt: new Date(),
         updatedAt: new Date() 
       },
 
       {
         description: 'Diarreia',
-        ownerPet_ID: 1,
+        FK_Pets_Diagnoses: 4,
+		    FK_People_Diagnoses: 1,
         createdAt: new Date(),
         updatedAt: new Date() 
       },
       
       {
         description: 'boca espumando - raiva',
-        ownerPet_ID: 4,
+        FK_Pets_Diagnoses: 2,
+        FK_People_Diagnoses: 4,
         createdAt: new Date(),
         updatedAt: new Date() 
       },
       
       {
-        description: 'Unhas grandes demais',
-        ownerPet_ID: 2,
+        description: 'Enogoliu um pedaço de sapato',
+				FK_Pets_Diagnoses: 2,
+        FK_People_Diagnoses: 2,
         createdAt: new Date(),
         updatedAt: new Date() 
       },
+      {
+        description: 'Barulho estranho na barriga',
+				FK_Pets_Diagnoses: 2,
+        FK_People_Diagnoses: 2,
+        createdAt: new Date(),
+        updatedAt: new Date() 
+      }
 
   ], {});
     
   },
 
-  down: async (queryInterface, Sequelize) => {
-    
-    
-    
+  down: async (queryInterface, Sequelize) => { 
     await queryInterface.bulkDelete('Diagnoses', null, {});
      
   }
