@@ -7,6 +7,6 @@ router.post('/people', PeopleControllers.createPeople)
 router.get('/people', PeopleControllers.getAllPeople)
 router.get('/people/:peopleId', PeopleControllers.getOnePeople)
 router.put('/people/:peopleId',PeopleControllers.resetPeople)
-router.delete('/people/:peopleId', PeopleControllers.removePeople)
+router.delete('/people/:peopleId', PeopleControllers.removePerson)
 
 module.exports = router

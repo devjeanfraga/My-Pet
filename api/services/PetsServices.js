@@ -5,7 +5,7 @@ class PetsServices extends Services {
   constructor () {
     super('Pets')
   }
-
+  
 }
 
 module.exports = PetsServices

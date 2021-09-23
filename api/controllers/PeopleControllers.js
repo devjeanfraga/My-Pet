@@ -4,9 +4,9 @@ const peopleServices = new PeopleServices('People')
 class PeopleControllers {
 
   static async createPeople (req, res) {
-    const shape = req.body
+    const personBody = req.body
     try {
-      const newData = await peopleServices.criar(shape)
+      const newData = await peopleServices.criar(personBody)
       return res.status(201).json(newData) 
     }catch (err) {
       console.log(err.message)
@@ -47,7 +47,7 @@ class PeopleControllers {
     }
   }
 
-  static async removePeople(req, res ) {
+  static async removePerson(req, res ) {
      const {peopleId} = req.params
      try{
           await peopleServices.deletar(Number(peopleId))

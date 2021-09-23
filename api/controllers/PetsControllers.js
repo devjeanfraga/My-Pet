@@ -15,6 +15,39 @@ class PetsControllers {
     }
   }
 
+  static async  getAllPets (req, res) {
+    try {
+      const allPets = await petsServices.pegarTodos()
+      return res.status(200).json(allPets)
+    }catch (err) {
+      console.log(err.message)
+      return res.status(500).json(err.message)
+    }
+  }
+
+  static async getOnePet (req, res) {
+    const { petsId } = req.params
+    try {
+      const pet =await petsServices.pegarUm(petsId)
+      return res.status(200).json(pet)
+    }catch (err) {
+      console.log(err.message)
+      return res.status(500).json(err.message)
+    }
+
+  }
+
+  static async getPetsByOwner (req, res) {
+    const {peopleId} = req.params
+    try {
+      const allPets = await petsServices.econtrarEContar({owner_ID: Number(peopleId)}, {limit: 3})
+      res.status(200).json(allPets)
+    }catch (err) {
+      console.log(err)
+      return res.status(500).json(err)
+    }
+  }
+
   static async resetPet (req, res) {
     const {peopleId, petsId} = req.params
     const infosBody = req.body
@@ -22,16 +55,6 @@ class PetsControllers {
       await petsServices.atualizarRegistros(infosBody, {id: Number(petsId), owner_ID: Number(peopleId)})
       const petUpdated = await petsServices.pegarUm(petsId)
       return res.status(200).json(petUpdated )
-    }catch (err) {
-      console.log(err.message)
-      return res.status(500).json(err.message)
-    }
-  }
-
-  static async  getAllPets (req, res) {
-    try {
-      const allPets = await petsServices.pegarTodos()
-      return res.status(200).json(allPets)
     }catch (err) {
       console.log(err.message)
       return res.status(500).json(err.message)
@@ -46,30 +69,6 @@ class PetsControllers {
     }catch (err) {
       console.log(err.message)
       return res.status(500).json(err.message)
-    }
-  }
-
- static async getOnePet (req, res) {
-    const { petsId } = req.params
-    try {
-      const pet =await petsServices.pegarUm(petsId)
-      return res.status(200).json(pet)
-    }catch (err) {
-      console.log(err.message)
-      return res.status(500).json(err.message)
-    }
-
-  }
-
-
-  static async getPetsByOwner (req, res) {
-    const {peopleId} = req.params
-    try {
-      const allPets = await petsServices.econtrarEContar({owner_ID: Number(peopleId)}, {limit: 3})
-      res.status(200).json(allPets)
-    }catch (err) {
-      console.log(err)
-      return res.status(500).json(err)
     }
   }
 

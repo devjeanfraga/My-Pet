@@ -36,6 +36,42 @@ class DiagnosesControllers {
     }
   }
 
+   static async getOneDiagnostic (req, res) {
+    const {petsId, diagnosesId} = req.params
+    try {
+      const diagnostic = await diagnosesServices.pegarUm(diagnosesId)
+      return res.status(200).json(diagnostic) 
+    } catch (err) {
+      console.log(err)
+      return  res.status(500).json(err)
+    }
+   }
+
+  static async resetDiagnosctic (req, res) {
+    const {petsId, diagnosesId} = req.params
+    const diagnosticBody = req.body
+    try {
+      await diagnosesServices.atualizarRegistros(diagnosticBody, {id: diagnosesId, FK_Pets_Diagnoses: Number(petsId) })
+      const diagnosticUpdated = await diagnosesServices.pegarUm({id: diagnosesId, FK_Pets_Diagnoses: Number(petsId) })
+      return res.status(200).json(diagnosticUpdated)
+    } catch (err) { 
+      console.log(err)
+      return  res.status(500).json(err)
+    }
+  }
+
+  static async removeDiagnostic (req, res) {
+    const  {petsId, diagnosesId} = req.params
+    try {
+      await diagnosesServices.deletar(diagnosesId)
+      return res.status(200).json({message: `O diagnostico de id ${diagnosesId} do pet de id ${petsId} foi deletado com sucesso`})
+    } catch (err) {
+      console.log(err.message)
+      return  res.status(500).json(err)
+    }
+  }
+
+
 }
 
 module.exports = DiagnosesControllers

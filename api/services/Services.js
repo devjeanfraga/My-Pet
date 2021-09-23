@@ -16,13 +16,13 @@ class Services {
     // SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People`;
   }
 
-  async pegarUm (id) {
-    return database[this.modelName].findOne({where: { id: id}})
+  async pegarUm (where) {
+    return database[this.modelName].findOne({where: {...where}})
     //SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People` WHERE `People`.`id` = 1;
   }
 
   async atualizarRegistro (infosASeremAtualizadas, id, transacao = {}) {
-    return database[this.modelName].update(infosASeremAtualizadas, {where: {id: id}}, {transaction: transacao})
+    return database[this.modelName].update(infosASeremAtualizadas, {where: {id:Number(id)}}, {transaction: transacao})
     //UPDATE `People` SET `name`=?,`updatedAt`=? WHERE `id` = ?
     //SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People` WHERE `People`.`id
   } 
@@ -31,8 +31,8 @@ class Services {
     return database[this.modelName].update(infosASeremAtualizadas, {where: {...where}}, {transaction: transacao})
   }
 
-  async deletar (id) {
-    return database[this.modelName].destroy({where: {id: id}})
+  async deletar (where) {
+    return database[this.modelName].destroy({where: {...where}})
   // DELETE FROM `People` WHERE `id` = 16
   // SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People`;
   }
