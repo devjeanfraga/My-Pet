@@ -15,22 +15,21 @@ class DiagnosesControllers {
     }
   }
 
-  static async getDianosesByPet(req, res) {
-    const {petsId} = req.params
+  static async getAllDiagnoses (req, res) {
     try {
-      const allDiagnoses = await diagnosesServices.econtrarEContar({FK_Pets_Diagnoses: Number(petsId)}, {limit: 20})
-      return res.status(200).json(allDiagnoses)
+      const allDiagnoses = await diagnosesServices.pegarTodos()
+      return res.status(201).json(allDiagnoses)
     }catch (err) {
       console.log(err.message)
       return res.status(500).json(err.message)
     }
   }
 
-
-  static async getAllDiagnoses (req, res) {
+  static async getDianosesByPet(req, res) {
+    const {petsId} = req.params
     try {
-      const allDiagnoses = await diagnosesServices.pegarTodos()
-      return res.status(201).json(allDiagnoses)
+      const allDiagnoses = await diagnosesServices.econtrarEContar({FK_Pets_Diagnoses: Number(petsId)}, {limit: 20})
+      return res.status(200).json(allDiagnoses)
     }catch (err) {
       console.log(err.message)
       return res.status(500).json(err.message)
