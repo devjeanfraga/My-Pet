@@ -1,13 +1,19 @@
 const {PeopleServices} = require('../services')
 const peopleServices = new PeopleServices('People')
+const PeopleHandle = require('../dataHandle/PeopleHandle')
+const {PeopleValidation} = require('../validations/Validation')
+
+
 
 class PeopleControllers {
 
   static async createPeople (req, res) {
-    const personBody = req.body
     try {
-      const newData = await peopleServices.criar(personBody)
-      return res.status(201).json(newData) 
+      const personBody = req.body
+      const person = new PeopleHandle(personBody)
+      await person.criationPerson()
+      const peopleValidation = new PeopleValidation()
+      return res.status(201).json(peopleValidation.filter(person))
     }catch (err) {
       console.log(err.message)
       return res.status(500).json(err.message)

@@ -5,8 +5,8 @@ class Services {
     this.modelName= modelName
   }
 
-  async criar (infosDeEntrada) {
-    return database[this.modelName].create(infosDeEntrada)
+  async criar (infosDeEntrada = {}) {
+    return database[this.modelName].create(infosDeEntrada)       
     //SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People`;
     //INSERT INTO `People` (`id`,`name`,`phone`,`email`,`active`,`appointment`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?); 
   }
