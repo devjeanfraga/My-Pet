@@ -42,7 +42,7 @@ class PeopleHandle  {
      this.createdAt = repository.createdAt
      this.updatedAt = repository.updatedAt   
      
-    // return repository
+    
   }
 }
 

@@ -1,5 +1,3 @@
-//const PeopleControllers = require("../controllers/PeopleControllers")
-
 class Validation {
 
   filter_Public_Fields (data) {
@@ -36,8 +34,6 @@ class PeopleValidation extends Validation {
   }
  
 }
-
-
 
 module.exports = {
   Validation: Validation,
