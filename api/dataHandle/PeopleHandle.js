@@ -44,6 +44,11 @@ class PeopleHandle  {
      
     
   }
+
+  async getPerson () {
+    const getOnePerson = await peopleServices.pegarUm(this.id) 
+    
+  } 
 }
 
 module.exports = PeopleHandle

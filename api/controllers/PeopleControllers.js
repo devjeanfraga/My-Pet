@@ -2,7 +2,7 @@ const {PeopleServices} = require('../services')
 const peopleServices = new PeopleServices('People')
 const PeopleHandle = require('../dataHandle/PeopleHandle')
 const {PeopleValidation} = require('../validations/Validation')
-
+const peopleValidation = new PeopleValidation()
 
 
 class PeopleControllers {
@@ -12,7 +12,6 @@ class PeopleControllers {
       const personBody = req.body
       const person = new PeopleHandle(personBody)
       await person.criationPerson()
-      const peopleValidation = new PeopleValidation()
       return res.status(201).json(peopleValidation.filter(person))
     }catch (err) {
       console.log(err.message)
@@ -33,8 +32,12 @@ class PeopleControllers {
   static async getOnePeople (req, res) {
     const {peopleId} = req.params
     try{
-      const onePeople = await peopleServices.pegarUm(Number(peopleId))
-      return res.status(200).json(onePeople)
+      const person = new PeopleHandle({id: Number(peopleId)})
+      person.getPerson()
+      //const onePeople = await peopleServices.pegarUm(Number(peopleId))
+     //console.log(person)
+      return res.status(200).json(person)
+      
     }catch (err) {
       console.log(err.message)
       return res.status(500).json(err.message)

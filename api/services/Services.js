@@ -16,8 +16,8 @@ class Services {
     // SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People`;
   }
 
-  async pegarUm (where) {
-    return database[this.modelName].findOne({where: {...where}})
+  async pegarUm (id) {
+    return database[this.modelName].findOne({where: {id: id} })
     //SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People` WHERE `People`.`id` = 1;
   }
 
@@ -31,8 +31,8 @@ class Services {
     return database[this.modelName].update(infosASeremAtualizadas, {where: {...where}}, {transaction: transacao})
   }
 
-  async deletar (where) {
-    return database[this.modelName].destroy({where: {...where}})
+  async deletar (id) {
+    return database[this.modelName].destroy({where: {id: id}})
   // DELETE FROM `People` WHERE `id` = 16
   // SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People`;
   }
