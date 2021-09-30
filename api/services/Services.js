@@ -12,7 +12,7 @@ class Services {
   }
 
   async pegarTodos (where = {}) {
-    return database[this.modelName].findAll({where: {...where}})
+    return database[this.modelName].findAll({where: {...where}, raw: true})
     // SELECT `id`, `name`, `phone`, `email`, `active`, `appointment`, `createdAt`, `updatedAt` FROM `People` AS `People`;
   }
 

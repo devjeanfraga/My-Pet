@@ -1,70 +1,71 @@
 const {PeopleServices} = require('../services')
 const peopleServices = new PeopleServices('People')
-const PeopleHandle = require('../dataHandle/PeopleHandle')
+const PeopleViews = require('../Views/PeopleViews')
 const {PeopleValidation} = require('../validations/Validation')
 const peopleValidation = new PeopleValidation()
 
 
 class PeopleControllers {
 
-  static async createPeople (req, res) {
+  static async createPerson (req, res, next) {
     try {
       const personBody = req.body
-      const person = new PeopleHandle(personBody)
+      const person = new PeopleViews(personBody)
       await person.criationPerson()
       return res.status(201).json(peopleValidation.filter(person))
     }catch (err) {
-      console.log(err.message)
-      return res.status(500).json(err.message)
+      next(err)
     }
   }
 
-  static async getAllPeople (req, res) {
+  static async getAllPeople (req, res, next) {
       try{
-        const allPeople =  await peopleServices.pegarTodos()
-        return res.status(200).json(allPeople)
+        const allPeople= await peopleServices.pegarTodos()
+        return res.status(200).json(peopleValidation.filter(allPeople) )
       }catch (err) {
-        console.log(err.message)
-        return res.status(500).json(err.message)
+        next(err)
       }
   }
 
-  static async getOnePeople (req, res) {
+  static async getPerson (req, res, next) {
     const {peopleId} = req.params
     try{
-      const person = new PeopleHandle({id: Number(peopleId)})
-      person.getPerson()
+      const person = new PeopleViews({id: Number(peopleId)})
+      await person.getPerson()
       //const onePeople = await peopleServices.pegarUm(Number(peopleId))
-     //console.log(person)
+      console.log(person)
       return res.status(200).json(person)
       
     }catch (err) {
-      console.log(err.message)
-      return res.status(500).json(err.message)
+      next(err)
     }
   }
 
-  static async resetPeople ( req, res) {
+  static async resetPerson ( req, res, next) {
     const  { peopleId } =  req.params
     const infosBody = req.body
+    const allData = Object.assign({ }, infosBody, {id:peopleId} )
     try {
-      const peopleUpdated=  await peopleServices.atualizarPeople(infosBody, Number(peopleId))
-       return res.status(200).json(peopleUpdated)
+      const updatedPerson = new PeopleViews(allData)
+      await updatedPerson.updatePerson()
+      return res.status(200).json(updatedPerson) 
     }catch (err) {
-      console.log(err.message)
-      return res.status(500).json(err.message)
+      next(err)
     }
   }
 
-  static async removePerson(req, res ) {
+  static async removePerson(req, res, next ) {
      const {peopleId} = req.params
      try{
-          await peopleServices.deletar(Number(peopleId))
-          res.status(204).json({message: `O Cliente de id  ${peopleId}  foi deletado com sucesso`})
+          const person = new PeopleViews({id: Number(peopleId)})
+          await person.getPerson()
+          await person.trash()
+          //await peopleServices.deletar(peopleId)
+          //console.log(person)
+          res.status(204).json({message:"exluido com sucesso"})
      }catch (err) {
-       console.log(err) 
-       return res.status(500).json(err)
-     }
+      next(err)
+    }
 }
 
 }

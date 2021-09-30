@@ -3,7 +3,7 @@ class InvalidFields extends Error {
     const message = ` O campo ${fieldName} está inválido`
     super(message)
     this.name = 'campo inválido'
-    this.id = 0 
+    this.idErr = 1
   }
 }
 

@@ -32,8 +32,8 @@ class PeopleValidation extends Validation {
     super()
     this.publicFields = ['id', 'name', 'active', 'appointment'].concat(extraFields || [])
   }
- 
 }
+
 
 module.exports = {
   Validation: Validation,
