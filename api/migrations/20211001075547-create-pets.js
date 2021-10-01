@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('People', {
+    await queryInterface.createTable('Pets', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,21 +12,24 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      phone: {
+      age: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      breed: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      email: {
+      weight: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      active: {
+      client_id: {
         allowNull: false,
-        type: Sequelize.BOOLEAN
-      },
-      appointment: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Clients',
+          key: 'id'},
       },
       createdAt: {
         allowNull: false,
@@ -39,6 +42,14 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('People');
+    await queryInterface.dropTable('Pets');
   }
 };
+
+/*
+  {
+    "name"
+    "age"
+    "breed
+  }
+*/

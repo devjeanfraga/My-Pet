@@ -10,29 +10,26 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Pets.belongsTo(models.People, {
-        foreignKey: 'owner_ID'
+      Pets.belongsTo(models.Clients, {
+        foreignKey: 'client_id',
+        as: 'client',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       })
 
-      Pets.belongsTo(models.Types, {
-        foreignKey: 'type_ID'
-      })
-
-      Pets.belongsTo(models.Sizes, {
-        foreignKey: 'size_ID'
-      })
-
-      Pets.hasMany(models.Diagnoses, {
-       foreignKey: 'FK_Pets_Diagnoses'
+      Pets.hasMany(models.Images, {
+        foreignKey: 'pet_id',
+        as: 'pet',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       })
     }
   };
   Pets.init({
     name: DataTypes.STRING,
-    breed: DataTypes.STRING,
     age: DataTypes.INTEGER,
-    weight: DataTypes.STRING,
-    sex: DataTypes.STRING
+    breed: DataTypes.STRING,
+    weight: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Pets',

@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "javascript35",
-    "database": "My_Pet",
+    "database": "my_pet",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
