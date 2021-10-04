@@ -23,6 +23,14 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       })
+
+      Pets.belongsToMany( models.Sexes, {
+        foreignKey:'pet_id', 
+        through: 'Pets_Sexes',
+        as: 'sexes',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      })
     }
   };
   Pets.init({

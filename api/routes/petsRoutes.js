@@ -4,9 +4,9 @@ const storage = require('../config/uploads')
 const multer = require('multer')
 
 const  router = Router()
-const uploads = multer({storage})
+const uploads = multer({storage: storage,}).fields([{name: 'images', maxCount: 3}])
 
-router.post('/clients/:client_id/pets',PetsControlller.createPet)
-router.post('/pets/:pet_id/uploads',uploads.array('images[]', 3), PetsControlller.uploadsPics)
+router.post('/clients/:client_id/pets',uploads, PetsControlller.create)
+
 
 module.exports = router 

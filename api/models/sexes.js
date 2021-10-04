@@ -10,11 +10,17 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Sexes.belongsToMany(models.Pets, {
+        foreignKey: 'sex_id',
+        through: 'Pets_Sexes',
+        as: 'boos',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      })
     }
   };
   Sexes.init({
-    name: DataTypes.STRING
+    gender: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Sexes',
