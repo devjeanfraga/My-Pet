@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/createPet.css"
+import {BiImageAdd} from 'react-icons/bi';
+
 
 export default function createPet () {
   return (
@@ -34,7 +36,7 @@ export default function createPet () {
             <div className= "input-block">
               <label htmlFor= "gender"> Selecione o sexo do Pet </label>
 
-              <select id= "gender">
+              <select id= "gender" className= "form-control selectpicker">
                 <option value= "femea"selected > Fêmea </option>
                 <option value= "macho"> Macho </option>
               </select>
@@ -47,7 +49,7 @@ export default function createPet () {
               <div className= "images-container">
 
                 <label htmlFor= "image[]" className= "new-image">
-                      icon
+                      <BiImageAdd size= {30} color= "#15b6d6"/>
                 </label>
               </div>
               <input multiple type="file" id= "image[]" value= "" onChange= ""/>
