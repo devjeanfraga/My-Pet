@@ -2,7 +2,7 @@ import Sidebar from "../components/sidebar.js"
 import "../styles/pet.css";
 import picturePet from '../images/ivosk.jpg'
 
-export default function pet () {
+export default function Pet () {
   return (
     <div id= "page-Pet">
       <Sidebar/>

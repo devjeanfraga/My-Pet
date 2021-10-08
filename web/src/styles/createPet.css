@@ -67,41 +67,6 @@ form.create-Pet-Form .input-block input {
   padding:  0px 16px;
 }
 
-form.create-Pet-Form .input-block  select  {
- -webkit-appearance: none;
- -moz-appearance: none;
- -ms-apparence: none;
-  appearance: none;
-
- box-shadow: none;
- outline: 0;
- box-shadow: none;
- border: 0;
-
-  background: #fff;
-  background-image: none;
-  flex: 1;
-  padding: 0 .5em;
-  color:rgb(111, 108, 119);
-  cursor:pointer;
-  font-size: 1em ;
-  font-family: 400 18px 'Jaldi', sans-serif;
-}
-
-select { 
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: 3em;
-  line-height: 3;
-  background: #ffff;
-  overflow: hidden;
-  border-radius:  .25em;
-}
-
-
-
-
 
 form.create-Pet-Form .input-block input[type='file'] {
   display: none;
