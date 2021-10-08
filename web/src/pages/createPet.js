@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/createPet.css"
 import {BiImageAdd} from 'react-icons/bi';
 import Ivi from '../images/ivosk.jpg'
 import Sidebar from '../components/sidebar.js'
 
 export default function createPet () {
+  const [name, setName] = useState("")
+  const [age, setAge] = useState(0)
+  const [breed, setbreed] = useState("")
+  const [weight, setWeight] = useState("")
+  const [gender, setGender] = useState("")
+  const [images, setImages] = useState<String[]>([])
+ 
   return (
     <div id= "page-create-Pet"> 
       
