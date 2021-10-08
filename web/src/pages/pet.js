@@ -17,12 +17,13 @@ export default function pet () {
               <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
               <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
               <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
-              
+
             </div>
           </div>
 
           <div className= "pet-details-content">
-            <h1>Ivi</h1>
+            <h1>Ivoski</h1>
+            <h3>Responsável : Jean Fraga</h3>
             <hr/>
 
             <div className= "pet-details-field">
