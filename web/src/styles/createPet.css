@@ -1,17 +1,21 @@
 #page-create-Pet {
   display: flex;
-  min-width: 988px;
+  min-width: 988px; 
 }
 
 #page-create-Pet main {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 form.create-Pet-Form {
   width: 700px;
   margin: 64px;
 
-  background: #015b85;
+  background: linear-gradient(180.54deg, #028ba3 0%, #12406a 100%);
   border: 1px solid #D3e2E5;
   border-radius: 20px;
 
@@ -116,6 +120,16 @@ form.create-Pet-Form .input-block .images-container img {
   border-radius: 20px; 
 }
 
+form.create-Pet-Form .input-block .new-image{
+  height: 96px;
+  border: 3px dashed;
+  background: rgba(255, 255, 255, 0.289);
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+}
+
 form.create-Pet-Form button.confirm-button {
   margin-top: 64px;
 
@@ -123,9 +137,9 @@ form.create-Pet-Form button.confirm-button {
   height: 64px;
   border: 0;
   cursor: pointer;
-  background :#36CF82;
+  background :#10a44a;
   border-radius: 20px;
-  color: #ffffff;
+  color: #FFF;
   font-weight: 700px;
 
   display: flex;

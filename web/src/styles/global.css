@@ -3,9 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
+body {
+  background-image:  url("../images/fundopet.png") ;
+  background-attachment: fixed;
+  background-size: 15%;
   color: #fff;
-  background: #ebf2f5
+  background-color: linear-gradient(329.54deg, #dfe7e9 0%, #e0ecf0 100%);
 }
 
 body, input, button {

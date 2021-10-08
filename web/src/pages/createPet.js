@@ -1,17 +1,19 @@
 import React from "react";
 import "../styles/createPet.css"
 import {BiImageAdd} from 'react-icons/bi';
-
+import Ivi from '../images/ivosk.jpg'
+import Sidebar from '../components/sidebar.js'
 
 export default function createPet () {
   return (
     <div id= "page-create-Pet"> 
       
+      <Sidebar/>
       <main>
         <form onSubmit=""  className= "create-Pet-Form">
         <fieldset>
           <div> Dono do Pet </div>
-          <legend>Pet</legend>
+          <legend>Cadastro do Pet </legend>
 
             <div className= "input-block">
               <label htmlFor = "name"> Nome </label>
@@ -44,12 +46,14 @@ export default function createPet () {
             </div>
 
             <div className= "input-block">
-              <label htmlFor= "images"> Imagens </label>
+              <label htmlFor= "images"> Imagens | máximo 3 </label>
               
               <div className= "images-container">
 
+                <img key= "" src= {Ivi} alt="Ivi"/>
+
                 <label htmlFor= "image[]" className= "new-image">
-                      <BiImageAdd size= {30} color= "#15b6d6"/>
+                      <BiImageAdd size= {30} color= "#FFFF"/>
                 </label>
               </div>
               <input multiple type="file" id= "image[]" value= "" onChange= ""/>
