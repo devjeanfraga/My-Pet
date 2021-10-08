@@ -3,33 +3,41 @@ import "../styles/createPet.css"
 import {BiImageAdd} from 'react-icons/bi';
 //import Ivi from '../images/ivosk.jpg'
 import Sidebar from '../components/sidebar.js'
+import api from '../services/api.js'
 
 export default function CreatePet () {
+  
   const [name, setName] = useState("")
-  const [age, setAge] = useState(0)
+  const [age, setAge] = useState("")
   const [breed, setBreed] = useState("")
   const [weight, setWeight] = useState("")
   const [gender, setGender] = useState("")
   const [images, setImages] = useState([])
   const [imagesPreviews, setPreviewImages] = useState([])
 
-  function handleSelectImages( event) {
+  function handleSelectImages(event) {
+    
     if(!event.target.files) {
       return
     }
 
-    const selecionarImagens = Array.from(event.target.files);
+    const selecionarImagens = [...event.target.files]
+    console.log(selecionarImagens)
     setImages(selecionarImagens)
 
     const selecionarPrevisualisacaoDeImagens = selecionarImagens.map(imagem =>{
       return URL.createObjectURL(imagem)
     })
+    console.log(selecionarPrevisualisacaoDeImagens)
+
     setPreviewImages(selecionarPrevisualisacaoDeImagens)
+    console.log(setPreviewImages)
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
   const data = new FormData();
+ 
   data.append('name', name);
   data.append('age', String(age));
   data.append('breed', breed);
@@ -39,7 +47,8 @@ export default function CreatePet () {
     data.append('images', image);
   });
 
-    
+    await api.post('/clients/1/pets', data)
+    alert('Cadastro efetuado com sucesso');
 }
 
 
@@ -60,7 +69,7 @@ export default function CreatePet () {
             </div>
 
             <div className= "input-block">
-              <label htmlfor= "age"> Idade </label>
+              <label htmlFor= "age"> Idade </label>
               <input id="age" value={age} onChange= {event => setAge(event.target.value)} />
             </div>
 

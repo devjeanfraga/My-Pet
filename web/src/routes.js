@@ -8,7 +8,7 @@ const Routes =  () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path= "/pets/create" component= {CreatePet} />
+        <Route path= "/clients/:client_id/pets" component= {CreatePet} />
         <Route path= "/pet" component= {Pet}/>
       </Switch>
     </BrowserRouter>
