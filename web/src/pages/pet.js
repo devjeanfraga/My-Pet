@@ -11,12 +11,9 @@ export default function Pet () {
 
           <div id= "images-wrapper">
             <div className= "images">  
-              <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
-              <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
-              <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
-              <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
-              <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
-              <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div>
+
+              <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div> 
+             
 
             </div>
           </div>
@@ -24,7 +21,7 @@ export default function Pet () {
           <div className= "pet-details-content">
             <h1>Ivoski</h1>
             <h3>Responsável : Jean Fraga</h3>
-            <hr/>
+          
 
             <div className= "pet-details-field">
               <h2>Idade</h2>
