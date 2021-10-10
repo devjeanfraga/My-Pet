@@ -12,12 +12,12 @@
 }
 
 .pet-details {
-  display: grid;
-  grid-template-columns: 700px;
-  grid-template-rows: 40Vh 60vh;
+  width: 700px;
+  margin: 60px auto;
   background: linear-gradient(180.54deg, #028ba3 0%, #12406a 100%);
-  border: 2px solid #dee2e5;
-  border-radius: 20px;
+  
+  border: 1px solid #dee2e5;
+
 
   /*overflow: hidden*/
 }
@@ -26,17 +26,12 @@
   background-color: chartreuse;
   margin: 10px;
   border-radius: 20px;
-  display: grid;
-  grid-template-columns: 500px;
-  grid-template-rows: 1fr;
  
 }
 
 .pet-details #images-wrapper .images {
-  background-color: crimson;
-  margin: 5px;
-  border-radius: 20px;
-  grid-template-columns: 1fr;
+
+
 /*
   overflow-x: auto;
   border-radius: 10px;
@@ -48,25 +43,20 @@
 }
 
 .pet-details #images-wrapper .images .item-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: cyan;
-  border-radius: 20px;
-  margin: 20px;
+
+
+  
   scroll-snap-align: center;
 }
 .pet-details #images-wrapper img {
-   border-radius: 20px;
-    width: 200px;
-    height: 200px;
+
+
     object-fit: cover;
 }
 
 .pet-details .pet-details-content {
-  background-color: chocolate;
+background-color: chocolate;
   margin: 10px;
-  border-radius: 20px;
   
 }
 

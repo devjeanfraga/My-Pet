@@ -10,12 +10,9 @@ export default function Pet () {
         <div className= "pet-details">
 
           <div id= "images-wrapper">
-            <div className= "images">  
-
-              <div className= "item-image"> <img src= {picturePet} alt= "pet"/> </div> 
-             
-
-            </div>
+              <div className="images">
+                <div className="item-image"><img src="" alt=""/></div>
+              </div>
           </div>
 
           <div className= "pet-details-content">
