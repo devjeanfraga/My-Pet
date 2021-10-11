@@ -6,17 +6,19 @@ class Services {
     this.model = model
   }
 
-  async crie (data ={} , transacao = {trasaction: transacao}  ) {
+
+
+  async crie (data ={} , transacao = {transaction: transacao}  ) {
     return await db[this.model].create(data)
   }
 
   async pegueTodos (where = {}, transacao = {}) {
-    return db[this.model].findAll({where: {...where}, raw: true}, {trasaction: transacao})
+    return db[this.model].findAll({where: {...where}, raw: true}, {transaction: transacao})
     
   }
   
   async peguePorPk (id, include = {}, transacao = {}){
-    return db[this.model].findByPk(id, include, {trasaction: transacao})
+    return db[this.model].findByPk(id, include, {transaction: transacao})
    }
   
   async atualizeRegistros (infosASeremAtualizadas, where, transacao = {}) {
