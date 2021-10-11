@@ -17,7 +17,8 @@ class Pet extends Component  {
       breed: '',
       weight: '',
       gender: '',
-      images: {id: 0, path: ``}
+      images: [],
+      onImgIndex: 0
     }
   }
 async componentDidMount() {
@@ -31,10 +32,8 @@ async componentDidMount() {
     breed: response.data.breed,
     weight: response.data.weight,
     gender: response.data.sexes[0].gender,
-    images: {
-      id: response,
-      path:''
-    }
+    images:  response.data.pet[0 ].path
+
   })
 
   //this.setState({user: response.data, pet:response.data.client[0]})
@@ -43,27 +42,31 @@ async componentDidMount() {
 
  render() {
   
-
+const url = `http://localhost:3838/uploads`
 
   return (
     <div id= "page-Pet">
       <Sidebar/>
       <main>
         <div className= "pet-details">
-          
+         
             <div className= "main-image">
-              <img src={picturePet} alt=""/>
+  
+              <img src={this.state.images[this.state.onImgIndex]} alt={this.state.name}/>
             </div>
 
             <div className= "images">
-            <button key="" className="active" type= "button" onClick= "">
-              <img src={picturePet} alt=""/>
-            </button>
 
-            <button key="" className="active" type= "button" onClick= "">
-              <img src={picturePet} alt=""/>
-            </button>
+            {this.state.images.map((image, index )=> {
+              return (
+                <button key={image.id} className={this.state.onImgIndex === index ? 'active': ''} type= "button" onClick= {() => this.setState({onImgIndex: index})}>
+                <img src={image.path} alt={this.state.name}/>
+              </button>
+              )
+            })}
+
             </div>
+      
           <div className= "pet-details-content">
             <div className= "titular">
               <h1>{this.state.name}</h1>

@@ -4,6 +4,6 @@ const ClientController = require('../controllers/ClientController')
 const router = Router()
 
 router.post('/clients', ClientController.create)
-router.get('/clients/:client_id/pets', ClientController.index)
+router.get('/clients/:clientId/pets', ClientController.index)
 
 module.exports = router

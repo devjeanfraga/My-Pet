@@ -1,35 +1,43 @@
 const database = require('../models')
+const PetsViews = require('../views/PetsViews')
 
-class PetsControlller {
+class PetsController {
 
   static async create (req, res) {
 
     try{
-      const {client_id}= req.params
+      const {clientId}= req.params
       const {name, age, breed, weight} = req.body
+
+
       //Pegar o id do cliente para criar um novo pet
-      const client = await database.Clients.findByPk(Number(client_id)) 
+      const client = await database.Clients.findByPk(Number(clientId)) 
       if(!client) {
         return res.json({message: 'not found Client'})
       }
-      //Req. de dados
+
+
+      //Requisição de dados table Pets
       const data = {name, age, breed, weight, client_id}
       const pet = await database.Pets.create(data)
+      
         if(!pet) {
           return res.status(400).json({mensagem: "Opa ! você informou algo que não consigo entender"})
         }
-       
+      
+
+      //Encontrar ou Criar o sexo do Animal 
       const gender = req.body.gender
-      const[boos]= await database.Sexes.findOrCreate({
-        where: {gender}
-      })
+      const[boos]= await database.Sexes.findOrCreate({ where: {gender}})
       await pet.addSex(boos)
       
+
       //Upload de imagens
       const reqImages = req.files.images
       const images = reqImages.map(image =>{return {path: image.filename, pet_id: pet.id}})
       await database.Images.bulkCreate(images)
-      const newPet = await database.Pets.findByPk(pet.id, {include:['sexes','pet' ]})  
+      const newPet = await database.Pets.findByPk(pet.id, {include:['sexes','pet' ]}) 
+     
       return res.status(201).json(newPet)
     }catch(err) {
       console.log(err)
@@ -62,7 +70,7 @@ class PetsControlller {
   
 }
 
-module.exports = PetsControlller
+module.exports = PetsController
 
 
 /*

@@ -22,9 +22,9 @@ class ClientsController {
   }
 
   static async index (req, res) {
-    const {client_id} = req.params
+    const {clientId} = req.params
     try{
-      const client = await database.Clients.findByPk(client_id, {include: 'client'})
+      const client = await database.Clients.findByPk(clientId, {include: 'client'})
       return res.status(200).json(client)
     }catch(err){
       console.log(err)
@@ -33,4 +33,4 @@ class ClientsController {
 
 }
 
-module.exports =ClientsController
+module.exports = ClientsController
