@@ -36,8 +36,27 @@ class PetsControlller {
     }
   }
 
+  static async index (req, res) {
+    const {petId} =  req.params
+    try {
+      const pet = await database.Pets.findByPk(petId, {include:['sexes','pet' ]})
+      if(!pet) {
+        return res.json({message: "not found"})
+      }
+      return res.status(201).json(pet)
+    }catch (err){
+      console.log(err)
+    }
+  }
 
-  
+  static async show (req, res) {
+    try {
+        const allPets =  await database.Pets.findAll()
+        return res.status(200).json(allPets)
+    }catch(err){
+ console.log(err)
+    }
+  }
 
   
 }

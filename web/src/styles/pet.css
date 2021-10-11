@@ -1,37 +1,56 @@
 #page-Pet {
   display: flex;
+
   min-height: 100vh;
 }
 
 #page-Pet main{
   flex: 1;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   
 }
 
 .pet-details {
+  justify-items: center;
   width: 700px;
   margin: 60px auto;
   background: linear-gradient(180.54deg, #028ba3 0%, #12406a 100%);
   
   border: 1px solid #dee2e5;
-
-
-  /*overflow: hidden*/
-}
-
-.pet-details #images-wrapper {
-  background-color: chartreuse;
-  margin: 10px;
   border-radius: 20px;
+  
+  overflow: hidden
+}
+.pet-details .main-image {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+
+  background-color: #FB933C;
+
+  border-radius: 20px ;
+  padding: 3px;
+ 
+  margin: auto;
+  margin-top: 20px;
+}
+.pet-details img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center;
  
 }
 
-.pet-details #images-wrapper .images {
-
-
+.pet-details .images {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 8px;
+  margin: 10px 20px 20px 20px;
+  
 /*
   overflow-x: auto;
   border-radius: 10px;
@@ -42,68 +61,105 @@
 */
 }
 
-.pet-details #images-wrapper .images .item-image {
+.pet-details .images button {
+  border: none;
+  height: 88px;
+  background: none;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+  outline: none;
 
+  opacity: 0.8;
 
-  
-  scroll-snap-align: center;
 }
-.pet-details #images-wrapper img {
-
-
-    object-fit: cover;
+.pet-details .images button .active {
+    opacity: 1;
 }
 
+.pet-details .images button img  {
+  width: 100%;
+  height: 88px;
+  object-fit: cover;
+}
 .pet-details .pet-details-content {
-background-color: chocolate;
-  margin: 10px;
-  
+background-color: #FFFF;
+margin: 10px auto;
+margin-bottom: 10px;
+padding: 30px;
+border-radius: 20px; 
+width: 80%;
 }
 
-.pet-details .pet-details-content h1{
-  /*
+.pet-details .pet-details-content .titular {
+  display: grid;
+  grid-template-rows: 2fr;
+  justify-content: center;
+  align-items: center;
+  
+}
+.pet-details .pet-details-content .titular h1{
+ 
   color: #12406a;
   font-size: 54px;
-*/
+  font-weight: normal;
+  margin: auto;
+  
+
 }
-
 .pet-details .pet-details-content h3{
+  font-weight: normal;
   color: #1c7bae;
-
+  
 }
 
 .pet-details .pet-details-content hr {
-  /*
+  
   height: 1px;
   border: 0 ;
-  background: #028ba3;
+  background: #3b7079;
   margin: 44px 0;
-  */
+ 
 }
 
 .pet-details .pet-details-content .pet-details-field {
- /*
- border: 1px solid #bec7c9 ;
+
+  border: 1px solid #bec7c9 ;
+  border-radius: 10px;
+  background-color: rgba(252, 250, 249, 0.344);
+ 
+  margin-bottom: 10px;
 
 
- background-color: rgba(252, 250, 249, 0.344);
-*/
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
 
 }
 
 .pet-details .pet-details-content .pet-details-field p {
-  color: rgba(148, 144, 144, 0.727)
+  color: rgba(148, 144, 144, 0.727);
+  font-size: 20px;
+  line-height: 20px;
+  padding: 5px;
+  padding-right: 10px;
 }
 
 .pet-details .pet-details-content .pet-details-field h2 {
 
-  font-size: 36px;
-  line-height: 36px;
-  color: #517699;
+  font-size: 30px;
+  line-height: 30px;
+  color: rgba(109, 109, 109, 0.905);
+  padding: 5px;
+  padding-left: 10px;
 }
 
+
+
+
+
 .pet-details .pet-details-content button.contact-button {
-  margin-top: 64px;
+  margin-top: 30px;
 
   width: 100%;
   height: 64px;
@@ -129,7 +185,42 @@ background-color: chocolate;
   background: #33CF82;
 }
 
+.pet-details  .operacoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
 
+  margin: 25px 40px 30px;
+
+  justify-content: center;
+  align-items: center;
+}
+.pet-details  .operacoes button {
+  height: 64px;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #FB933C;
+  color: #FFFFFF;
+  font-weight: 800;
+  
+
+  transition: backgorund-color 0.3s;
+}
+
+.pet-details  .operacoes button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet-details  .operacoes button svg{
+  margin-right: 20px;
+}
+
+.pet-details .operacoes button:hover {
+  background: #C96E23;
+}
 
 /*
 .pet-details > img {
