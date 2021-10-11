@@ -6,11 +6,12 @@ const path = require('path')
 const cors = require('cors')
 const {NotFound, InvalidFields, DataNotProvided} =require('../api/errors')
 
+
 const app = express()
 
 app.use(cors())
 routes(app)
-app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 //const uploads = multer({storage})
 
 app.use((erro, req, res, next) =>{

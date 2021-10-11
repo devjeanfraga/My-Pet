@@ -16,20 +16,25 @@ class Pet extends Component  {
       age: 0,
       breed: '',
       weight: '',
-      gender: ''
+      gender: '',
+      images: {id: 0, path: ``}
     }
   }
 async componentDidMount() {
   
   const response = await api.get('/pets/1');
-  console.log(response.data)
+  console.log(response.data.pet)
 
   this.setState({
     name: response.data.name,
     age: response.data.age,
     breed: response.data.breed,
     weight: response.data.weight,
-    gender: response.data.sexes[0].gender 
+    gender: response.data.sexes[0].gender,
+    images: {
+      id: response,
+      path:''
+    }
   })
 
   //this.setState({user: response.data, pet:response.data.client[0]})
