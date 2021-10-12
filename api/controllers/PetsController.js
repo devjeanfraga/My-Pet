@@ -1,44 +1,36 @@
 const database = require('../models')
-const PetsServices = require('../services/PetsServices')
-const petServices = new PetsServices('Pets')
+const PetsDto = require('../DTO/PetsDto')
+
 
 class PetsController {
 
   static async create (req, res) {
+    const client_id = req.params.clientId
+    const {name, age, breed, weight, gender } = req.body
 
     try{
-      /***** Verificar a existencia do Dono do pet *****/
-      const {clientId}= req.params
-      const client = await database.Clients.findByPk(Number(clientId)) 
-      if(!client) {
-        return res.json({message: 'not found Client'})
-      }
-
-      /***** Requisição de dados do Pets *****/
-      const formPet = {name: req.body.name, age: req.body.age, breed: req.body.breed, weight: req.body.weight, client_id: clientId}
-      //const pet = await database.Pets.create(data)
-
-
-      /*****Encontrar ou Criar o sexo do Animal *****/ 
-      const formGender = req.body.gender
-      //const[boos]= await database.Sexes.findOrCreate({ where: {gender}})
-      //await pet.addSex(boos)
+     
       
 
-      //Upload de imagens
       const reqImages = req.files.images
-      const formImages = reqImages.map(image =>{return {path: image.filename }})
+      const images = reqImages.map(image =>{return {path: image.filename }})
+
+      
+      const Pet = {name, age, breed, weight, client_id: Number(client_id), gender, }
+      const newPet = new PetsDto(Pet)
+      await newPet.createPet()
+      
+
+      //const pet = await database.Pets.create(data)
+
+      //const[boos]= await database.Sexes.findOrCreate({ where: {gender}})
+      //await pet.addSex(boos)
+
+      //Upload de imagens
+
       //await database.Images.bulkCreate(images)
 
-
-      /***********CRIAÇAO DO PET**********/ 
-
-      const op = petServices.criePet(formPet,{gender:formGender}, formImages)
-
-
-
-
-      const newPet = await database.Pets.findByPk( op.animal.pet.id , {include:['sexes','pet']}) 
+      //const newPet = await database.Pets.findByPk( op.animal.pet.id , {include:['sexes','pet']}) 
      
       return res.status(201).json(newPet)
     }catch(err) {

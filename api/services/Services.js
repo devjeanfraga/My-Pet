@@ -8,8 +8,8 @@ class Services {
 
 
 
-  async crie (data ={} , transacao = {transaction: transacao}  ) {
-    return await db[this.model].create(data)
+  async crie (data, transacao = {}  ) {
+    return await db[this.model].create(data, transacao)
   }
 
   async pegueTodos (where = {}, transacao = {}) {

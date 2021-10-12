@@ -9,7 +9,7 @@ const multer = require('multer')
 const  router = Router()
 const uploads = multer({storage: storage,}).fields([{name: 'images', maxCount: 3}])
 
-router.post('/clients/:clientId/pets',uploads, PetsController.create)
+router.post('/clients/:clientId/pets', PetsController.create)
 router.get('/pets/:petId', PetsController.index)
 router.get('/pets', PetsController.show)
 
