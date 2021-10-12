@@ -9,8 +9,8 @@ class ImagesServices extends Services {
     
   }
 
-  async crieImagens (formImage = [], where = {},  transacao = {}) {
-    return db[this.model].bulkCreate(formImage, {where: where } ,transacao)
+  async crieImagens (formImage = [] ) {
+    return db[this.model].bulkCreate(formImage)
   }
 
 }

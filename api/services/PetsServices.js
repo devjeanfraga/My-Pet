@@ -7,10 +7,6 @@ class PetsServices extends Services {
 
   }
 
-  async createPet () {
-    return await super.crie()
-  }
-
 }
 
 module.exports = PetsServices
