@@ -30,14 +30,22 @@ class Serial {
 
 
 class SerialClient extends Serial{
-  constructor(extraFields){
+  constructor(extraFields) {
     super()
-    this.publicField= ['id','name', 'phone', 'email'].concat(extraFields || [])
+    this.publicField = ['id','name', 'phone', 'email'].concat(extraFields || [])
+  }
+}
+
+class SerialPets extends Serial {
+  constructor (extraFields) {
+    super()
+    this.publicField = ['id','name', 'age', 'breed', 'weight', 'gender', 'sexes', 'pet' ].concat(extraFields || [])
   }
 }
 
 
 module.exports = {
   Serial: Serial,
-  SerialClient: SerialClient
+  SerialClient: SerialClient,
+  SerialPets: SerialPets
 }

@@ -1,6 +1,7 @@
 const database = require('../models')
 const PetsDto = require('../DTO/PetsDto')
-
+const {SerialPets} = require('../serial/Serializer')
+const serializer = new SerialPets()
 
 class PetsController {
 
@@ -12,12 +13,12 @@ class PetsController {
      
       
 
-      const reqImages = req.files.images
-      const images = reqImages.map(image =>{return {path: image.filename }})
+      const images = req.files.images
+      //const files = images.map(image =>{return {path: image.filename }})
 
       
-      const Pet = {name, age, breed, weight, client_id: Number(client_id), gender, }
-      const newPet = new PetsDto(Pet)
+      const pet = {name, age, breed, weight, client_id: Number(client_id), gender, images }
+      const newPet = new PetsDto(pet)
       await newPet.createPet()
       
 
@@ -30,9 +31,11 @@ class PetsController {
 
       //await database.Images.bulkCreate(images)
 
-      //const newPet = await database.Pets.findByPk( op.animal.pet.id , {include:['sexes','pet']}) 
+     //const petCreated = await database.Pets.findByPk( newPet.id , {include:['sexes','pet']}) 
+     const petCreated = await newPet.findIndex(newPet.id, {include:['sexes','pet']})
+
      
-      return res.status(201).json(newPet)
+      return res.status(201).json(petCreated)
     }catch(err) {
       console.log(err)
     }
@@ -40,13 +43,17 @@ class PetsController {
 
   static async index (req, res) {
     const {petId} =  req.params
+
     try {
-      const pet = await database.Pets.findByPk(petId, {include:['sexes','pet' ]})
+      const pet = new PetsDto({id:Number(petId)})
+      await pet.findIndex()
+
       if(!pet) {
         return res.json({message: "not found"})
       }
+
+      return res.status(200).json(pet)
       
-      return res.status(201).json(pet)
     }catch (err){
       console.log(err)
     }

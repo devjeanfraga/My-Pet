@@ -28,7 +28,7 @@ class ClientDto {
   }
 
   async findIndex () { 
-    const client =  await db.peguePorPk(this.id, {include:  'client'})
+    const client =  await db.peguePorPk(this.id, {include: 'client'})
     this.id =  client.id
     this.name = client.name
     this.phone =  client.phone
