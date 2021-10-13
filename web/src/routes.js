@@ -9,7 +9,7 @@ const Routes =  () => {
     <BrowserRouter>
       <Switch>
         <Route path= "/clients/:client_id/pets" component= {CreatePet} />
-        <Route path= "/pet" component= {Pet}/>
+        <Route path= "/pet/:id" component= {Pet}/>
       </Switch>
     </BrowserRouter>
 

@@ -70,12 +70,10 @@
   overflow: hidden;
   outline: none;
 
-  opacity: 0.8;
+  opacity: 0.735;
 
 }
-.pet-details .images button .active {
-    opacity: 1;
-}
+
 
 .pet-details .images button img  {
   width: 100%;

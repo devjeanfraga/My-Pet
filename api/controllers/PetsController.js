@@ -8,34 +8,18 @@ class PetsController {
   static async create (req, res) {
     const client_id = req.params.clientId
     const {name, age, breed, weight, gender } = req.body
+    const images = req.files.images
 
     try{
      
-      
-
-      const images = req.files.images
-      //const files = images.map(image =>{return {path: image.filename }})
-
-      
       const pet = {name, age, breed, weight, client_id: Number(client_id), gender, images }
       const newPet = new PetsDto(pet)
       await newPet.createPet()
-      
+  
+      const petCreated = await newPet.findIndex(newPet.id, {include:['sexes','pet']})
 
-      //const pet = await database.Pets.create(data)
-
-      //const[boos]= await database.Sexes.findOrCreate({ where: {gender}})
-      //await pet.addSex(boos)
-
-      //Upload de imagens
-
-      //await database.Images.bulkCreate(images)
-
-     //const petCreated = await database.Pets.findByPk( newPet.id , {include:['sexes','pet']}) 
-     const petCreated = await newPet.findIndex(newPet.id, {include:['sexes','pet']})
-
-     
       return res.status(201).json(petCreated)
+
     }catch(err) {
       console.log(err)
     }
@@ -53,7 +37,7 @@ class PetsController {
       }
 
       return res.status(200).json(pet)
-      
+
     }catch (err){
       console.log(err)
     }
@@ -68,6 +52,13 @@ class PetsController {
     }
   }
 
+  static async update (req, res) {
+    const {petId, clientId} = req.params
+    const{name, age, breed, weight, gender } = req.body
+    const images = req.files.images
+    const dataPet = {name: name, age:age, breed: breed, weight: weight, gender: gender, id:petId ,  client_id: clientId}
+    const data = Object.arguments() 
+  }
   
 }
 

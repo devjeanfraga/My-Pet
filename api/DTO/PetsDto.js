@@ -63,14 +63,22 @@ class PetsDto {
   }
 
   async updatePet () {
-    await dbPet.peguePorPk(this.id, {include:['sexes','pet' ]})
+    await this.findIndex()
 
-    const fields = ['name', 'age', 'breed', 'wieght', 'gender', 'images']
-    const updateFields = {}
-    fields.forEach( field => {
-      
+    const updatePet = {
+     
+      name: this.name,
+      age: this.age,
+      breed: this.breed,
+      weight: this.weight,
+       
+    } 
+    /*
+    return db.sequelize.transaction(async transacao =>{
+      await dbPet.atualizeRegistros(updatePet, {id: this.id, client_id: this.client_id },  transacao )
+      await dbSex.atualizeRegistros(this.gender, {})
     })
-
+    */
   }
 }
 
