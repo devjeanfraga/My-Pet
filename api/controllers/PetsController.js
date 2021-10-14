@@ -56,8 +56,19 @@ class PetsController {
     const {petId, clientId} = req.params
     const{name, age, breed, weight, gender } = req.body
     const images = req.files.images
-    const dataPet = {name: name, age:age, breed: breed, weight: weight, gender: gender, id:petId ,  client_id: clientId}
-    const data = Object.arguments() 
+
+    try {
+      const dataPet = {name: name, age:age, breed: breed, weight: weight, gender: gender, id:petId ,  client_id: clientId, images: images}
+      const pet =  new PetsDto(dataPet)
+      await pet.updatePet()
+      const updatedPet = await pet.findIndex()
+  
+      return res.status(200).json(updatedPet)
+  
+    }catch (err) {
+      console.log(err)
+    }
+    
   }
   
 }

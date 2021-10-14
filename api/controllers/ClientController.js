@@ -1,6 +1,7 @@
 const database = require('../models')
 const ClientDto = require('../DTO/ClientsDto')
 const{ SerialClient} = require('../serial/Serializer')
+const {ClientsServices} = require('../services')
 const serializer = new SerialClient()
 
 
@@ -38,6 +39,17 @@ class ClientsController {
     }
   }
 
+  static async show (req, res) {
+    try {
+     
+    const clients = new ClientsServices()
+    const allClients = await clients.pegueTodos() 
+      return res.status(200).json(serializer.filter(allClients))
+
+    }catch (err) {
+      console.log(err)
+    }
+  }
 }
 
 module.exports = ClientsController

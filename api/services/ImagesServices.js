@@ -13,6 +13,9 @@ class ImagesServices extends Services {
     return db[this.model].bulkCreate(formImage)
   }
 
+  async atualizarImagens (tableName, newValues = {}, condition = {}, transacao = {}) {
+    return db[this.model].bulkUpdate( tableName, newValues, condition, transacao )
+  }  
 }
 
 module.exports = ImagesServices

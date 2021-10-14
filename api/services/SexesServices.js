@@ -8,7 +8,7 @@ class SexesServices extends Services {
     
   }
 
-  async econtreOuCrie (field =  {} ) {
+  async econtreOuCrie (field =  {}, transacao = {} ) {
  
     return await db[this.model].findOrCreate({ where: field } )
     

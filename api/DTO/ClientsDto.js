@@ -39,6 +39,11 @@ class ClientDto {
     
   }
 
+
+  //async showClients () {
+  //  return  db.pegueTodos()
+  //}
+
 }
 
 module.exports = ClientDto

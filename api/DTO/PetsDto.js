@@ -73,14 +73,21 @@ class PetsDto {
       weight: this.weight,
        
     } 
-    /*
+    
     return db.sequelize.transaction(async transacao =>{
-      await dbPet.atualizeRegistros(updatePet, {id: this.id, client_id: this.client_id },  transacao )
-      await dbSex.atualizeRegistros(this.gender, {})
+      const pet = await dbPet.atualizeRegistros(updatePet, {id: this.id, client_id: this.client_id },  transacao )
+
+      const [boos] = await dbSex.econtreOuCrie({gender:this.gender}, {transaction: transacao})
+      const updatedGender = await pet.addSex(boos)
+      
+      const files = this.images.map(image =>{return {path: image.filename }})
+      const updatedImg = await dbImages.atualizarImagens('Images', files, { pet_id: pet.id}, {transaction: transacao} )
+      console.log(pet, updatedGender, updatedImg)
     })
-    */
+    
   }
 }
 
+//dbSex.atualizeRegistros(this.gender, {})
 
 module.exports = PetsDto
