@@ -63,7 +63,7 @@ class PetsDto {
   }
 
   async updatePet () {
-    await this.findIndex()
+    //await this.findIndex()
 
     const updatePet = {
      
@@ -74,13 +74,23 @@ class PetsDto {
        
     } 
     
-    return db.sequelize.transaction(async transacao =>{
-      const pet = await dbPet.atualizeRegistros(updatePet, {id: this.id, client_id: this.client_id },  transacao )
+    this.gender 
 
-      const [boos] = await dbSex.econtreOuCrie({gender:this.gender}, {transaction: transacao})
-      const updatedGender = await pet.addSex(boos)
-      
-      const files = this.images.map(image =>{return {path: image.filename }})
+    return db.sequelize.transaction(async transacao =>{
+      const pet = await dbPet.peguePorPk(this.id, {transaction: transacao} )
+      if(!pet) {
+        throw new Error('pet não encontrado')
+      }
+      await pet.atualizeRegistros(updatePet, {id: this.id, client_id: this.client_id },  transacao )
+
+      await pet.setBoos(this.gender)
+      //const updatedGender = await db.Pets.addSex(boos)
+
+      const files = this.images.map(image =>{
+        const img = {path: image.filename }
+
+      })
+
       const updatedImg = await dbImages.atualizarImagens('Images', files, { pet_id: pet.id}, {transaction: transacao} )
       console.log(pet, updatedGender, updatedImg)
     })

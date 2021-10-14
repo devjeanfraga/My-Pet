@@ -55,7 +55,8 @@ class PetsController {
   static async update (req, res) {
     const {petId, clientId} = req.params
     const{name, age, breed, weight, gender } = req.body
-    const images = req.files.images
+    const images = req.files.images 
+    
 
     try {
       const dataPet = {name: name, age:age, breed: breed, weight: weight, gender: gender, id:petId ,  client_id: clientId, images: images}
