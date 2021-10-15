@@ -9,12 +9,12 @@ class ImagesServices extends Services {
     
   }
 
-  async crieImagens (formImage = [] ) {
-    return db[this.model].bulkCreate(formImage)
+  async crieImagens (formImage = [],   transacao = {}) {
+    return db[this.model].bulkCreate(formImage, transacao)
   }
 
-  async atualizarImagens (tableName, newValues = {}, condition = {}, transacao = {}) {
-    return db[this.model].bulkUpdate(tableName, newValues, condition, transacao )
+  async apagueImagens (tableName, where = {}) {
+    return db[this.model].bulkDelete(tableName, where).then(()=>{console.log})
   }   
 }
 

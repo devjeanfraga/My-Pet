@@ -1,4 +1,5 @@
 const db = require('../models')
+const Sequelize = require('sequelize')
 const PetsServices = require('../services/Services')
 const SexesServices = require('../services/SexesServices')
 const ImagesServices = require('../services/ImagesServices')
@@ -70,16 +71,22 @@ class PetsDto {
     return db.sequelize.transaction(async transacao =>{
       const pet = await dbPet.peguePorPk(this.id, {transaction: transacao} )
 
-      await pet.atualizeRegistros(updatePet, {id: this.id, client_id: this.client_id },  transacao )
+      await dbPet.atualizeRegistros(updatePet, {id: this.id }, { transaction: transacao})
 
       await pet.setGender(this.gender)
       
-      this.images.map( async (image) =>{
-      const img = {path: image.filename, pet_id: pet.id } //id: 1
-      await  dbImages.atualizeRegistros( img, {id}, {transaction: transacao} )
-      })
-    })  //Final da transaction
-    
+      const files = this.images.map(image =>{return {path: image.filename, pet_id: pet.id }})
+      await dbImages.apagarRegistro({where: {pet_id: pet.id}}, {options: {truncate: true, restartIdentity: true}}, {transaction: transacao})
+      await dbImages.crieImagens(files, {transaction: transacao})
+   
+      })//Final da transaction
+  }
+
+  async removePet () {
+    return db.sequelize.transaction(async transacao =>{
+      await dbPet.apagarRegistro({where: {id: this.id,}},{transaction:transacao})
+    })
+   
   }
 }
 

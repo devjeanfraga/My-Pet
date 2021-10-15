@@ -14,6 +14,8 @@ module.exports = {
         references: {
           model: 'Pets',
           key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       sex_id: {
         allowNull: false,
@@ -21,6 +23,8 @@ module.exports = {
         references: {
           model: 'Sexes',
           key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,

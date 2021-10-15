@@ -18,6 +18,8 @@ module.exports = {
         references: {
           model: 'Pets',
           key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,

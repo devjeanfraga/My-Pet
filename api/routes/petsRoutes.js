@@ -13,7 +13,8 @@ router.post('/clients/:clientId/pets', uploads, PetsController.create)
 router.get('/clients/:clientId/pets/:petId', PetsController.index)
 router.get('/pets', PetsController.show)
 
-router.put('/clients/:clientId/pets/:petId',uploads , PetsController.update)
+router.post('/clients/:clientId/pets/:petId',uploads , PetsController.update)
+router.delete('/clients/:clientId/pets/:petId', PetsController.remove)
 
 
 

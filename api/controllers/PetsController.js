@@ -59,9 +59,6 @@ class PetsController {
     const{name, age, breed, weight, gender } = req.body
     const images = req.files.images 
     
-    if( gender === 'macho' || gender === 'Macho' ){
-      return gender = [1]
-    }
 
     try {
       const dataPet = {name: name, age:age, breed: breed, weight: weight, gender: gender, id:petId ,  client_id: clientId, images: images}
@@ -75,6 +72,19 @@ class PetsController {
       console.log(err)
     }
     
+  }
+
+  static async remove (req, res ) {
+    const {petId} = req.params
+    try {
+      const pet = new PetsDto({id: petId})
+      await pet.removePet()
+
+      return res.status(200).json({message: ` Pet de id ${petId} removido com sucesso`})
+
+    } catch (err) {
+      console.log(err) 
+    }
   }
   
 }

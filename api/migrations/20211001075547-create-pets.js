@@ -30,6 +30,8 @@ module.exports = {
         references: {
           model: 'Clients',
           key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
