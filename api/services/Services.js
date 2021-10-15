@@ -24,6 +24,14 @@ class Services {
   async atualizeRegistros (infosASeremAtualizadas, where, transacao = {}) {
     return db[this.model].update(infosASeremAtualizadas, {where: {...where}}, {transaction: transacao})
   }
+
+  async apagarRegistro ( where = {}, transacao = {}) {
+    return db[this.model].destroy( where, transacao)
+  }
+
+  async restaurarResgistro(where = {}, transacao = {}) {
+      return db[this.model].restore({where: where}, transacao)
+  }
 }
 
 

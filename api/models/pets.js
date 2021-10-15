@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
 
       Pets.hasMany(models.Images, {
         foreignKey: 'pet_id',
-        as: 'pics',
+        as: 'pictures',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       })
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       Pets.belongsToMany( models.Sexes, {
         foreignKey:'pet_id', 
         through: 'Pets_Sexes',
-        as: {singular:'gender'},
+        as: 'gender',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       })

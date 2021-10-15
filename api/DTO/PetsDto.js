@@ -32,8 +32,8 @@ class PetsDto {
     this.updatedAt = pet.updatedAt
 
     /** ENCONTRAR OU CRIAR **/
-    const [boos] = await dbSex.econtreOuCrie({gender:this.gender})
-    await pet.addSex(boos)
+    const [genderOfTheAnimal] = await dbSex.econtreOuCrie({gender:this.gender})
+    await pet.addGender(genderOfTheAnimal)
 
     /** CRIAÇÃO DE IMAGENS **/
     const files = this.images.map(image =>{return {path: image.filename, pet_id: pet.id }})
@@ -49,7 +49,7 @@ class PetsDto {
   }
 
   async findIndex () {
-    const pet = await dbPet.peguePorPk(this.id, {include:['sexes','pet' ]})
+    const pet = await dbPet.peguePorPk(this.id, {include: ['gender','pictures']})
     return {
       owner_id: this.client_id = pet.client_id,
       id: pet.id,
@@ -57,43 +57,28 @@ class PetsDto {
       age: this.age = pet.age,
       breed: this.breed = pet.breed,
       weight: this.weight = pet.weight,
-      gender: this.gender = pet.sexes.map( i => {return {sex: this.gender = i.gender}}),
-      images: this.images = pet.pet.map(image => {return  {id: image.id, path: `http://localhost:3838/uploads/${image.path}`}})
+      gender: this.gender = pet.gender.map( i => {return {sex: this.gender = i.gender}}),
+      images: this.images = pet.pictures.map(image => {return  {id: image.id, path: `http://localhost:3838/uploads/${image.path}`}})
     }
   }
 
   async updatePet () {
-    //await this.findIndex()
-
-    const updatePet = {
-     
-      name: this.name,
-      age: this.age,
-      breed: this.breed,
-      weight: this.weight,
-       
-    } 
+    const updatePet = { name: this.name, age: this.age, breed: this.breed, weight: this.weight } 
     
     this.gender 
 
     return db.sequelize.transaction(async transacao =>{
       const pet = await dbPet.peguePorPk(this.id, {transaction: transacao} )
-      if(!pet) {
-        throw new Error('pet não encontrado')
-      }
+
       await pet.atualizeRegistros(updatePet, {id: this.id, client_id: this.client_id },  transacao )
 
-      await pet.setBoos(this.gender)
-      //const updatedGender = await db.Pets.addSex(boos)
-
-      const files = this.images.map(image =>{
-        const img = {path: image.filename }
-
+      await pet.setGender(this.gender)
+      
+      this.images.map( async (image) =>{
+      const img = {path: image.filename, pet_id: pet.id } //id: 1
+      await  dbImages.atualizeRegistros( img, {id}, {transaction: transacao} )
       })
-
-      const updatedImg = await dbImages.atualizarImagens('Images', files, { pet_id: pet.id}, {transaction: transacao} )
-      console.log(pet, updatedGender, updatedImg)
-    })
+    })  //Final da transaction
     
   }
 }

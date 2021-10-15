@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       Sexes.belongsToMany(models.Pets, {
         foreignKey: 'sex_id',
         through: 'Pets_Sexes',
-        as: 'animals',
+        as: 'genderOfTheAnimal',
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       })

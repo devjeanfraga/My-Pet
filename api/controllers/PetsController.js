@@ -2,6 +2,7 @@ const database = require('../models')
 const PetsDto = require('../DTO/PetsDto')
 const {SerialPets} = require('../serial/Serializer')
 const serializer = new SerialPets()
+const PetsServices = require('../services/PetsServices')
 
 class PetsController {
 
@@ -16,7 +17,7 @@ class PetsController {
       const newPet = new PetsDto(pet)
       await newPet.createPet()
   
-      const petCreated = await newPet.findIndex(newPet.id, {include:['sexes','pet']})
+      const petCreated = await newPet.findIndex(newPet.id, {include:['gender','petpictures']})
 
       return res.status(201).json(petCreated)
 
@@ -26,10 +27,10 @@ class PetsController {
   }
 
   static async index (req, res) {
-    const {petId} =  req.params
+    const {petId, clientId} =  req.params
 
     try {
-      const pet = new PetsDto({id:Number(petId)})
+      const pet = new PetsDto({id:Number(petId), client_id: Number(clientId)})
       await pet.findIndex()
 
       if(!pet) {
@@ -45,8 +46,9 @@ class PetsController {
 
   static async show (req, res) {
     try {
-        const allPets =  await database.Pets.findAll()
-        return res.status(200).json(allPets)
+        const pets = new PetsServices()
+        const allPets = await pets.pegueTodos() 
+        return res.status(200).json(serializer.filter(allPets))
     }catch(err){
  console.log(err)
     }
@@ -57,6 +59,9 @@ class PetsController {
     const{name, age, breed, weight, gender } = req.body
     const images = req.files.images 
     
+    if( gender === 'macho' || gender === 'Macho' ){
+      return gender = [1]
+    }
 
     try {
       const dataPet = {name: name, age:age, breed: breed, weight: weight, gender: gender, id:petId ,  client_id: clientId, images: images}

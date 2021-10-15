@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Images.belongsTo(models.Pets, {
-      as: 'pet',
+      as: 'picturesOfPets',
       foreignKey: 'pet_id',
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE' 

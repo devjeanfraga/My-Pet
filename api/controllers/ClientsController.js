@@ -50,6 +50,43 @@ class ClientsController {
       console.log(err)
     }
   }
+
+  static async update (req, res) {
+    const {clientId} = req.params
+    const {name, phone, email} = req.body
+    const data = {id: Number(clientId), name: name, phone: phone, email: email}
+    try {
+
+      const client = new ClientDto(data)
+      await client.updateClient()
+      
+
+      return res.status(200).json(client)
+
+    } catch (err) { console.log(err)}
+  }
+
+  static async remove (req, res) {
+    const {clientId} = req.params
+
+    try {
+      const client = new ClientDto({id: Number(clientId)})
+      await client.removeClient()
+      return res.status(200).json({mesage: `cliente de id ${clientId} removido com sucesso`})
+    } catch (err) {console.log(err)}
+  }
+
+  static async restore (req, res) {
+    const {clientId} = req.params
+
+    try {
+      const client = new ClientDto({id: Number(clientId)})
+      await client.recycleClient()
+
+      return res.status(200).json(client)
+    } catch (err) {console.log(err)}
+  }
+
 }
 
 module.exports = ClientsController
