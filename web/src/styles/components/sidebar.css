@@ -1,6 +1,7 @@
 aside.app-sidebar {
   position: fixed;
   height: 100%;
+  width: 10%;
   padding: 56px 16px;
   background: linear-gradient(329.54deg, #12406a 10%, #04b0ce 100%);
 
@@ -11,8 +12,8 @@ aside.app-sidebar {
 }
 
 aside.app-sidebar img {
-  width:130px;
-  height:130px;
+  width: 100%;
+  height: 100%;
   object-fit:cover;
 
 }
