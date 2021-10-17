@@ -35,7 +35,7 @@ form.create-Pet-Form fieldset legend {
   font-size: 50px;
   line-height: 34px;
   color: #ffff;
-  font-weight: 700px;
+  font-weight: normal;
 
   border-bottom: 1px solid #D3e2E5;
   margin-bottom: 40px;

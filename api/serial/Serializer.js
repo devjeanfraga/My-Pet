@@ -32,7 +32,7 @@ class Serial {
 class SerialClient extends Serial{
   constructor(extraFields) {
     super()
-    this.publicField = ['id','name', 'phone', 'email'].concat(extraFields || [])
+    this.publicField = ['id','name'].concat(extraFields || [])
   }
 }
 

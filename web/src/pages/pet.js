@@ -4,6 +4,7 @@ import "../styles/pet.css";
 import {FiUser, FiX} from 'react-icons/fi'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
 
 
@@ -26,8 +27,11 @@ export default function Pet () {
     
     const[pet, setPet]= useState(objPet)
     const [indexImgActive, setIndexImgActive]= useState(0)
+
+    const {petId} = useParams()
+
     useEffect(()=>{
-      api.get(`/pets/79`).then(response => {
+      api.get(`/clients/:clientId/pets/${petId}`).then(response => {
         setPet(response.data)
         console.log(response.data)
       })

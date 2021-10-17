@@ -15,7 +15,10 @@
 .owners-details {
   justify-items: center;
   width: 700px;
+
   margin: 60px auto;
+  padding-bottom: 30px;
+
   background: linear-gradient(180.54deg, #028ba3 0%, #12406a 100%);
   
   border: 1px solid #dee2e5;
@@ -47,7 +50,7 @@ padding: 15px 30px;
 border-radius: 20px; 
 
 width: 80%;
-height: 150px;
+height: 70px;
 }
 
 .owners-details .owners-details-content .titular {
