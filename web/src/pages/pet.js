@@ -31,9 +31,9 @@ export default function Pet () {
     const {petId} = useParams()
 
     useEffect(()=>{
-      api.get(`/clients/:clientId/pets/${petId}`).then(response => {
+      api.get(`/clients/1/pets/2`).then(response => {
         setPet(response.data)
-        console.log(response.data)
+        console.log(response)
       })
     }, [petId])
 

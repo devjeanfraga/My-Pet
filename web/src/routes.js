@@ -18,7 +18,7 @@ const Routes =  () => {
         <Route path= "/clients" component= {Clients}/>
         <Route path= "/clients/:clientId" component = {ClientDetails}/>
         <Route path= "/pet-create" exact component= {CreatePet} />
-        <Route path= "/pets/:petId" component= {Pet}/>
+        <Route path= "/pets" component= {Pet}/>
        
         
       </Switch>

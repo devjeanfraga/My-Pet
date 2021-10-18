@@ -37,19 +37,21 @@ export default function CreatePet () {
 
   async function handleSubmit(event) {
     event.preventDefault();
-  const data = new FormData();
+    const data = new FormData();
  
-  data.append('name', name);
-  data.append('age', String(age));
-  data.append('breed', breed);
-  data.append('weight', weight);
-  data.append('gender', gender);
-  images.forEach(image => {
-    data.append('images', image);
+    data.append('name', name);
+    data.append('age', String(age));
+    data.append('breed', breed);
+    data.append('weight', weight);
+    data.append('gender', gender);
+    images.forEach(image => {
+      data.append('images', image);
   });
 
+    console.log(data)
     await api.post('/clients/1/pets', data)
     alert('Cadastro efetuado com sucesso');
+
 
     history.push('/clients')
 }

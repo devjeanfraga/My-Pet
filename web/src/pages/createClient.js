@@ -13,22 +13,24 @@ export default function CreateClient () {
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
 
-    async function handleSubmit (event = FormData) {
+    async function handleSubmit(event) {
       event.preventDefault();
-
       const data = new FormData();
-
-      data.append('name', name)
-      data.append('phone', String(phone))
-      data.append('email', email)
-
-      await api.post('/clients', data)
-
-      alert('Client cadastrado sucesso')
-      history.push('/clients')
-
-      
-    }
+   
+      data.append('name', name);
+      data.append('phone', String(phone));
+      data.append('email','jean@gmail.com');
+     
+    
+    
+  
+      console.log(data)
+      await api.post('/clients/', data)
+      alert('Cadastro efetuado com sucesso');
+  
+  
+      //history.push('/clients')
+  }
 
   return (
     <div id= "page-Create-Client"> 
@@ -52,7 +54,7 @@ export default function CreateClient () {
 
             <div className= "input-block">
               <label htmlFor= "email"> E-mail </label>
-              <input id="email" value= {email}  onChange= {(e)=> {setEmail(e.target.value)}} />
+              <input id="email" value= {email}   onChange= {(e)=> {setEmail(e.target.value)}} />
             </div>
 
         </fieldset>
