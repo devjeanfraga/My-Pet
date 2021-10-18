@@ -30,7 +30,7 @@ export default function Landing  () {
 
     
         <button type= "button">
-          <Link to= "" style= {{textDecoration:'none', color: '#FFFF' }}>
+          <Link to= "/client-create" style= {{textDecoration:'none', color: '#FFFF' }}>
             <span> Cadastre-se </span>
           </Link>    
         </button>

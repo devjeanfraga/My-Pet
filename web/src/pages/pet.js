@@ -35,7 +35,7 @@ export default function Pet () {
         setPet(response.data)
         console.log(response.data)
       })
-    }, [])
+    }, [petId])
 
 
 

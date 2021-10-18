@@ -5,7 +5,7 @@ import {FiUser} from 'react-icons/fi'
 import {MdPets} from 'react-icons/md'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
-import {Link} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 
 
 
@@ -25,13 +25,13 @@ export default function ClientDetails () {
   }
 
   const [client, setClient] = useState([Client])
-
+  const {clientId} = useParams()
   useEffect(() => {
-    api.get(`/clients/1`).then(res => {
+    api.get(`/clients/${clientId}`).then(res => {
       setClient(res.data)
       console.log(res.data)
     })
-  }, [])
+  }, [clientId])
 
   return (
     <div id= "page-Client-Details">

@@ -42,7 +42,7 @@ useEffect(() => {
                 <div key= {client.id} className= "owners-details-content">
                 <div className= "titular">
                   
-                  <Link to= {""}  style={{ textDecoration: 'none' }} >
+                  <Link to= {`/clients/${client.id}`}  style={{ textDecoration: 'none' }} >
                     <h3>
                       <span><FiUser size={24} color= "#12406a"/> {client.name} </span>
                     </h3>
