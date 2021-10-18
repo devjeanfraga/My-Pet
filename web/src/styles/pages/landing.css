@@ -1,0 +1,66 @@
+#page-Landing {  
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180.54deg, #028ba3 0%, #12406a 100%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#page-Landing h1 {
+  font-size: 85px;
+  font-weight: normal;
+  line-height: 75px;
+}
+
+#page-Landing p {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  font-size:24px;
+  line-height:20px;
+  font-weight: normal;
+}
+
+ .operacoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+
+  margin: 25px auto 30px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+
+ .operacoes  button {
+  height: 64px;
+  border: 0;
+
+  border-radius: 35px;
+  cursor: pointer;
+  background: #C96E23;
+  color: #FFFFFF;
+  font-weight: 800;
+  
+
+  transition: backgorund-color 0.3s;
+}
+
+ .operacoes  button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: normal;
+}
+
+ .operacoes a button svg{
+  margin-right: 20px;
+}
+
+.operacoes button:hover {
+  background: #FB933C;
+}

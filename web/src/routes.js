@@ -5,17 +5,18 @@ import CreatePet from '../src/pages/createPet.js'
 import Pet from '../src/pages/pet'
 import Clients from './pages/clients.js';
 import ClientDetails from '../src/pages/clientDetails'
-
+import Landing from '../src/pages/landing'
 
 const Routes =  () => {
   return (
     <BrowserRouter>
       <Switch>
        
+        <Route path= "/landing" component= {Landing}/>
         <Route path= "/clients" component= {Clients}/>
         <Route path= "/clientDetails" component = {ClientDetails}/>
         <Route path= "/pets/:petId" component= {Pet}/>
-        <Route path= "/pets" component= {CreatePet} />
+        <Route path= "/pets-create" component= {CreatePet} />
         
       </Switch>
     </BrowserRouter>

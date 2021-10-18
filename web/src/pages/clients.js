@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar.js"
-import "../styles/clients.css";
+import "../styles/pages/clients.css";
 
 import {FiUser} from 'react-icons/fi'
 import api from "../services/api.js";
@@ -24,7 +24,6 @@ useEffect(() => {
     api.get('/clients').then(res => {
       setClients(res.data)
       console.log(res.data)
-
     })
 }, [])
   

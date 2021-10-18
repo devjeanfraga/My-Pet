@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar.js"
-import "../styles/pet.css";
+import "../styles/pages/pet.css";
 //import picturePet from '../images/ivosk.jpg'
 import {FiUser, FiX} from 'react-icons/fi'
 import api from "../services/api.js";

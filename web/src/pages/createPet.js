@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/createPet.css"
+import "../styles/pages/createPet.css"
 import {BiImageAdd} from 'react-icons/bi';
 //import Ivi from '../images/ivosk.jpg'
 import Sidebar from '../components/sidebar.js'

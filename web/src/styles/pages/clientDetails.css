@@ -1,0 +1,220 @@
+#page-Client-Details {
+  display: flex;
+
+  min-height: 100vh;
+}
+
+#page-Client-Details main{
+  flex: 1;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.client-details {
+  justify-items: center;
+  width: 700px;
+
+  margin: 60px auto;
+  padding-bottom: 30px;
+
+  background: linear-gradient(180.54deg, #028ba3 0%, #12406a 100%);
+  
+  border: 1px solid #dee2e5;
+  border-radius: 20px;
+  
+  overflow: hidden
+}
+
+
+
+.client-details .client-details-content {
+background-color: #FFFF;
+
+margin: 30px auto;
+margin-bottom: 10px;
+
+padding: 15px 30px;
+border-radius: 20px; 
+
+width: 80%;
+height: 150px;
+}
+
+.client-details .client-details-content .titular {
+  display: grid;
+  grid-template-rows: 2fr;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
+.client-details .client-details-content h3{
+  font-weight: normal;
+  color: #1c7bae;
+  
+}
+
+.client-details .client-details-content hr {
+  
+  height: 1px;
+  border: 0 ;
+  background: #3b7079;
+  margin-bottom:  15px;
+ 
+}
+
+.client-details .client-details-content .client-details-field {
+
+  border: 1px solid #bec7c9 ;
+  border-radius: 3px;
+  background-color: rgba(252, 250, 249, 0.344);
+ 
+  margin-bottom: 5px;
+
+
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+
+}
+
+.client-details .client-details-content .client-details-field h2 {
+
+  font-size: 20px;
+  line-height: 20px;
+  color: rgba(109, 109, 109, 0.905);
+  padding: 2px;
+  padding-left: 10px;
+}
+
+.client-details .client-details-content .client-details-field p {
+  color:  #C96E23;/*rgba(148, 144, 144, 0.727);*/
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: normal;
+
+  padding: 2px;
+  padding-right: 10px;
+}
+
+/*Pet list*/
+.client-details .title-pet {
+  display: grid;
+  grid-template-rows: 1fr;
+  
+}
+
+.client-details .title-pet h1 {
+ 
+  font-size: 54px;
+  font-weight: normal;
+  margin: auto;
+}
+
+.client-details .client-pets-content {
+  background-color: #FFFF;
+
+  margin: 5px auto;
+  margin-bottom: 10px;
+
+  padding: 15px 30px;
+  border-radius: 20px; 
+
+  width: 80%;
+  height: 120px;
+
+  
+  justify-content: center;
+}
+
+.client-details .client-pets-content .titular-pet {
+  display: grid;
+  grid-template-rows: 2fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.client-details .client-pets-content .titular-pet h3 {
+  font-weight: normal;
+  color: #12406a;
+}
+
+.client-details .client-pets-content hr {
+  height: 1px;
+  border: 0 ;
+  background: #3b7079;
+  margin-bottom:  15px;
+}
+
+.client-details .client-pets-content .client-pet-field {
+  /*
+  border: 1px solid #12406a ;
+  border-radius: 3px;
+  background-color: rgba(252, 250, 249, 0.344);
+  */
+  margin-bottom: 5px;
+
+
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.client-details .client-pets-content .client-pet-field  h2{
+  font-size: 20px;
+  line-height: 20px;
+  color: #12406a;
+  padding: 2px;
+  padding-left: 10px;
+}
+
+.client-details .client-pets-content .client-pet-field p {
+  color:  #12406a;/*rgba(148, 144, 144, 0.727); #C96E23*/
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: normal;
+
+  padding: 2px;
+  padding-right: 10px;
+}
+
+
+.client-details  .operacoes {
+  display: grid;
+  grid-template-columns: 1fr;
+  
+
+  margin: 25px auto;
+  width: 80%;
+
+  justify-content: center;
+  align-items: center;
+}
+.client-details  .operacoes button {
+  height: 64px;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #10a44a;
+  color: #FFFFFF;
+  font-weight: 800;
+  
+
+  transition: backgorund-color 0.3s;
+}
+
+
+
+.client-details  .operacoes button svg{
+  margin-right: 20px;
+}
+
+.client-details .operacoes button:hover {
+  background: #36CF82;
+}
+
+
