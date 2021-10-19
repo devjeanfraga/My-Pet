@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import '../styles/pages/createClient.css'
-import Sidebar from '../components/sidebar'
-import api from '../services/api'
-import {useHistory} from 'react-router-dom'
+import React, {useState} from 'react';
+import '../styles/pages/createClient.css';
+import Sidebar from '../components/sidebar';
+import api from '../services/api';
+import {useHistory} from 'react-router-dom';
 
 
 export default function CreateClient () {
@@ -13,23 +13,23 @@ export default function CreateClient () {
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
 
+
+    
     async function handleSubmit(event) {
       event.preventDefault();
-      const data = new FormData();
-   
-      data.append('name', name);
-      data.append('phone', String(phone));
-      data.append('email','jean@gmail.com');
-     
-    
-    
-  
+      
+      const data =  {
+        name: name,
+        phone: String(phone),
+        email: email
+      }
+       await api.post('/clients', data)
+      
       console.log(data)
-      await api.post('/clients/', data)
       alert('Cadastro efetuado com sucesso');
   
   
-      //history.push('/clients')
+     history.push('/clients')
   }
 
   return (
@@ -37,24 +37,24 @@ export default function CreateClient () {
       
       <Sidebar/>
       <main>
-        <form onSubmit= {handleSubmit}  className= "create-client-Form">
+        <form onSubmit= {handleSubmit}   className= "create-client-Form">
         <fieldset>
          
           <legend>Cadastro do Cliente</legend>
 
             <div className= "input-block">
               <label htmlFor = "name"> Nome </label>
-              <input id= "name" value= {name} onChange= {(e) => {setName(e.target.value)}} />
+              <input id= "name" name = 'name' value= {name} onChange= {(e) => {setName(e.target.value)}} />
             </div>
 
             <div className= "input-block">
               <label htmlFor= "phone"> Telefone </label>
-              <input id="phone" value= {phone} onChange= {(e) => {setPhone(e.target.value)}} />
+              <input id="phone" name = 'phone' value= {phone} onChange= {(e) => {setPhone(e.target.value)}} />
             </div>
 
             <div className= "input-block">
               <label htmlFor= "email"> E-mail </label>
-              <input id="email" value= {email}   onChange= {(e)=> {setEmail(e.target.value)}} />
+              <input id="email" name = 'email' value= {email}   onChange= {(e)=> {setEmail(e.target.value)}} />
             </div>
 
         </fieldset>

@@ -2,7 +2,7 @@ const ClientsServices = require('../services/Services')
 const dbClients = new ClientsServices('Clients')
 const db =  require('../models')
 class ClientDto {
-  constructor ({id = 0, name = '', phone = '', email = '', createdAt = '', updatedAt = ''}) {
+  constructor ({id = Number(), name = String() , phone = String(), email = String() , createdAt = '', updatedAt = ''}) {
     this.id = id
     this.name = name
     this.phone = phone

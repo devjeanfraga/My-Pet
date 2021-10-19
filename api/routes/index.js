@@ -5,7 +5,7 @@ const clientsRoutes = require('./clientRoutes')
 const petsRoutes = require('../routes/petsRoutes')
 
 module.exports = app => {
-  app.use(urlencoded({extended: true}))
+  app.use(urlencoded({extended: false}))
   app.use(express.json())
 
   app.use(clientsRoutes)

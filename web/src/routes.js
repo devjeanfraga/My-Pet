@@ -15,9 +15,9 @@ const Routes =  () => {
        
         <Route path= "/" exact component= {Landing}/>
         <Route path= "/client-create" exact component= {CreateClient}/>
-        <Route path= "/clients" component= {Clients}/>
-        <Route path= "/clients/:clientId" component = {ClientDetails}/>
-        <Route path= "/pet-create" exact component= {CreatePet} />
+        <Route   path= "/clients" exact component= {Clients}/> 
+        <Route  path= "clients/:clientId"  component ={ClientDetails} />
+        <Route path= "clients/:clientId/pets" component= {CreatePet} />
         <Route path= "/pets" component= {Pet}/>
        
         

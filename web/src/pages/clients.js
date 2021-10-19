@@ -4,6 +4,7 @@ import "../styles/pages/clients.css";
 import {FiUser} from 'react-icons/fi'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
+
 import {Link} from "react-router-dom"
 
 
@@ -19,6 +20,10 @@ export default function Clients () {
   }
 
 const [clients, setClients] =  useState([Clients])
+
+
+
+
 
 useEffect(() => {
     api.get('/clients').then(res => {
@@ -37,7 +42,7 @@ useEffect(() => {
             <h1>Lista de Clientes</h1> 
           </div>
       
-          {clients.map( (client)=> {
+          {clients.length === 0  ? '' : clients.map( (client)=> {
               return (
                 <div key= {client.id} className= "owners-details-content">
                 <div className= "titular">
@@ -54,15 +59,12 @@ useEffect(() => {
     
               </div> 
               )
-            })}
-
-
-
-
-          
+            })}          
         </div>
       </main>
     </div>
+
+
   )
 }
 

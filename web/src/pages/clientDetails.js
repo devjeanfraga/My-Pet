@@ -6,6 +6,7 @@ import {MdPets} from 'react-icons/md'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
 import {Link, useParams} from "react-router-dom"
+//import Clients from "./clients.js";
 
 
 
@@ -26,6 +27,7 @@ export default function ClientDetails () {
 
   const [client, setClient] = useState([Client])
   const {clientId} = useParams()
+
   useEffect(() => {
     api.get(`/clients/${clientId}`).then(res => {
       setClient(res.data)
@@ -71,7 +73,7 @@ export default function ClientDetails () {
             return  (
               <div key= {pet.id} className= "client-pets-content">
                 <div className= "titular-pet">
-                  <Link to= "/pets/:petId" style= {{textDecoration: 'none'}}>
+                  <Link to= '' style= {{textDecoration: 'none'}}>
                     <h3>
                       <span><MdPets size={24} color= "#12406a"/> {pet.name} </span>
                     </h3>
@@ -94,7 +96,7 @@ export default function ClientDetails () {
 
           <div className= "operacoes">
             <button type= "button">
-              <Link to="/pets-create" style= {{textDecoration: 'none', color: '#FFFF', fontWeight: 'normal'}}>  Criar Pet </Link>
+              <Link to= {`/clients/${clientId}/pets`}  style= {{textDecoration: 'none', color: '#FFFF', fontWeight: 'normal'}}>  Criar Pet </Link>
             </button>
           </div>
 
@@ -104,3 +106,5 @@ export default function ClientDetails () {
     </div>
   )
 }
+
+//

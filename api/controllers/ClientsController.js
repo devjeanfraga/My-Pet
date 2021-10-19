@@ -16,12 +16,14 @@ class ClientsController {
       phone,
       email,
     }
+    console.log(data)
 
     try{ 
 
       const newClient = new ClientDto(data)
       await newClient.createClient()
-      return res.status(201).json(serializer.filter(newClient))
+      //serializer.filter()
+      return res.status(201).json(newClient)
 
     }catch(err) {
       console.log(err)
