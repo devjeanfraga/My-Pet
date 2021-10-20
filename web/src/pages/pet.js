@@ -28,14 +28,14 @@ export default function Pet () {
     const[pet, setPet]= useState(objPet)
     const [indexImgActive, setIndexImgActive]= useState(0)
 
-    const {petId} = useParams()
-
+    const {clientId, petId} = useParams()
+    
     useEffect(()=>{
-      api.get(`/clients/1/pets/2`).then(response => {
+      api.get(`/clients/${clientId}/pets/${petId}`).then(response => {
         setPet(response.data)
         console.log(response)
       })
-    }, [petId])
+    }, [clientId, petId])
 
 
 

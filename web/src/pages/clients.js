@@ -5,13 +5,17 @@ import {FiUser} from 'react-icons/fi'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
 
-import {Link} from "react-router-dom"
+
+import {Link, useRouteMatch, Route, useParams} from "react-router-dom"
 
 
 
 
 
 export default function Clients () {
+  const {clientId} = useParams()
+  const {url, path}= useRouteMatch()
+
 
   const Clients =   {
     id: Number(),
@@ -56,10 +60,10 @@ useEffect(() => {
                 </div>
               
                 <hr/>
-    
               </div> 
               )
-            })}          
+            })}     
+   
         </div>
       </main>
     </div>

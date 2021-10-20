@@ -12,16 +12,21 @@ const Routes =  () => {
   return (
     <BrowserRouter>
       <Switch>
-       
         <Route path= "/" exact component= {Landing}/>
         <Route path= "/client-create" exact component= {CreateClient}/>
-        <Route   path= "/clients" exact component= {Clients}/> 
-        <Route  path= "clients/:clientId"  component ={ClientDetails} />
-        <Route path= "clients/:clientId/pets" component= {CreatePet} />
-        <Route path= "/pets" component= {Pet}/>
-       
-        
+        <Route path= "/clients" exact component= {Clients}/> 
+        <Route path= "/clients/:clientId" component= {ClientDetails} />    
+     
       </Switch>
+      <Switch>
+          <Route path= "/:clientId/create" exact component={CreatePet}/>
+          
+      </Switch>
+      <Switch>
+         
+          <Route path= "/:clientId/:petId" exact component= {Pet}/>
+      </Switch>
+ 
     </BrowserRouter>
 
   ) 

@@ -5,13 +5,15 @@ import {FiUser} from 'react-icons/fi'
 import {MdPets} from 'react-icons/md'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
-import {Link, useParams} from "react-router-dom"
+import {Link, useParams,Switch, Route, useRouteMatch } from "react-router-dom"
 //import Clients from "./clients.js";
 
 
 
 
+
 export default function ClientDetails () {
+
 
   const Client = {
     id: Number(),
@@ -27,6 +29,7 @@ export default function ClientDetails () {
 
   const [client, setClient] = useState([Client])
   const {clientId} = useParams()
+  const {url, path} =useRouteMatch()
 
   useEffect(() => {
     api.get(`/clients/${clientId}`).then(res => {
@@ -41,7 +44,7 @@ export default function ClientDetails () {
       <main>
         <div className= "client-details">
       
-          <div key= {""} className= "client-details-content">
+          <div key= {client.id} className= "client-details-content">
 
             <div className= "titular"> 
               <h3>
@@ -73,7 +76,7 @@ export default function ClientDetails () {
             return  (
               <div key= {pet.id} className= "client-pets-content">
                 <div className= "titular-pet">
-                  <Link to= '' style= {{textDecoration: 'none'}}>
+                  <Link to= {`/${client.id}/${pet.id}`} style= {{textDecoration: 'none'}}>
                     <h3>
                       <span><MdPets size={24} color= "#12406a"/> {pet.name} </span>
                     </h3>
@@ -96,9 +99,10 @@ export default function ClientDetails () {
 
           <div className= "operacoes">
             <button type= "button">
-              <Link to= {`/clients/${clientId}/pets`}  style= {{textDecoration: 'none', color: '#FFFF', fontWeight: 'normal'}}>  Criar Pet </Link>
+              <Link to= {`/${clientId}/create`}  style= {{textDecoration: 'none', color: '#FFFF', fontWeight: 'normal'}}>  Criar Pet </Link>
             </button>
           </div>
+
 
           
         </div>
