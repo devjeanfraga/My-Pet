@@ -19,13 +19,10 @@ const Routes =  () => {
      
       </Switch>
       <Switch>
-          <Route path= "/:clientId/create" exact component={CreatePet}/>
-          
+          <Route path= "/create" component={CreatePet}/>
+          <Route path= "/pets/:petId"  component= {Pet}/>
       </Switch>
-      <Switch>
-         
-          <Route path= "/:clientId/:petId" exact component= {Pet}/>
-      </Switch>
+ 
  
     </BrowserRouter>
 

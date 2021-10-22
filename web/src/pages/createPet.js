@@ -4,11 +4,14 @@ import {BiImageAdd} from 'react-icons/bi';
 //import Ivi from '../images/ivosk.jpg'
 import Sidebar from '../components/sidebar.js'
 import api from '../services/api.js'
-import { useHistory, useParams } from "react-router";
+import { useHistory } from "react-router";
 
 export default function CreatePet () {
-  const {clientId} = useParams()
-  console.log(clientId)
+
+
+
+  //const {clientId} = useParams()
+ // console.log(clientId)
   const history = useHistory() 
   const [name, setName] = useState("")
   const [age, setAge] = useState("")
@@ -52,10 +55,18 @@ export default function CreatePet () {
       data.append('images', image);
   });
 
+    let clientId = localStorage.getItem('clientId')
+    if (!clientId) {
+    return 
+    }
+
+  clientId = JSON.parse(clientId)
+
     console.log(data)
     await api.post(`/clients/${clientId}/pets`, data)
     alert('Cadastro efetuado com sucesso');
 
+    
 
     history.push('/clients')
 }

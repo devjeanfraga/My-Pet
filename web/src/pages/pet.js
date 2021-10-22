@@ -4,14 +4,16 @@ import "../styles/pages/pet.css";
 import {FiUser, FiX} from 'react-icons/fi'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 
 
 
 
 export default function Pet () {
 
-   const  objPet = {
+    const history = useHistory()   
+
+    const  objPet = {
       id: Number(),
       name: String(),
       age: Number(),
@@ -37,8 +39,21 @@ export default function Pet () {
       })
     }, [clientId, petId])
 
+    //pegar o nome do dono do pet
+    let ownerName = localStorage.getItem('name')
 
-
+    //excluir cadastro do pet
+    async function handleDeletePet () {
+    const answer = window.confirm('Deseja excluir o cadastro?');
+      if(answer === true){
+        await api.delete(`/clients/${clientId}/pets/${petId}`)
+        alert("Cadastro Excluído com sucesso")
+        history.goBack()
+       
+    }else{
+      return
+    }
+  } 
   
   return (
     <div id= "page-Pet">
@@ -70,7 +85,7 @@ export default function Pet () {
           <div className= "pet-details-content">
             <div className= "titular">
               <h1>{pet.name}</h1>
-              <h3> <span><FiUser size={24} color= "#12406a"/> Owner: {pet.client_id}</span></h3>
+              <h3> <span><FiUser size={24} color= "#12406a"/> Owner: {ownerName}</span></h3>
             </div>
           
           <hr/>
@@ -107,7 +122,7 @@ export default function Pet () {
                 Editar
             </button>
 
-            <button type= "button" className= "red-button">
+            <button type= "button" className= "red-button" onClick= {handleDeletePet}>
                <span> <FiX size= {45} color= "#FFF"/></span>
             </button>
 
