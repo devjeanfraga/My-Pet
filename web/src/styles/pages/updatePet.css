@@ -1,0 +1,133 @@
+#page-update-Pet {
+  display: flex;
+  min-width: 988px; 
+}
+
+#page-update-Pet main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+form.create-Pet-Form {
+  width: 700px;
+  margin: 64px;
+
+  background: linear-gradient(180.54deg, #028ba3 0%, #12406a 100%);
+  border: 1px solid #D3e2E5;
+  border-radius: 20px;
+
+  padding: 64px 80px;
+
+  overflow: hidden;
+}
+
+form.create-Pet-Form fieldset {
+  border: 0;
+  margin-top: 0;  
+}
+
+form.create-Pet-Form fieldset legend {
+  width: 100%;
+
+  font-size: 50px;
+  line-height: 34px;
+  color: #ffff;
+  font-weight: normal;
+
+  border-bottom: 1px solid #D3e2E5;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+}
+
+form.create-Pet-Form .input-block  {
+  margin-top: 24px;
+}
+
+form.create-Pet-Form .input-block label {
+  display: flex;
+  color: #8fa7b3;
+  margin-bottom: 8px;
+  line-height: 36px;
+  font-size: 24px;
+}
+
+form.create-Pet-Form .input-block input {
+  width: 100%;
+  background: #f5f8fa;
+  border: 1px solid #d3e2e5;
+
+  border-radius: 20px;
+  outline: none;
+
+  color: #5c8599;
+  height: 64px;
+  padding:  0px 16px;
+}
+
+
+form.create-Pet-Form .input-block input[type='file'] {
+  display: none;
+}
+
+form.create-Pet-Form .input-block .images-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 16px;
+}
+
+form.create-Pet-Form .input-block .images-container img {
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 20px; 
+}
+
+form.create-Pet-Form .input-block .new-image{
+  height: 96px;
+  border: 3px dashed;
+  background: rgba(255, 255, 255, 0.289);
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.pet-details  .operacoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+
+  margin: 25px 40px 30px;
+
+  justify-content: center;
+  align-items: center;
+}
+.pet-details  .operacoes button {
+  height: 64px;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #FB933C;
+  color: #FFFFFF;
+  font-weight: 800;
+  
+
+  transition: backgorund-color 0.3s;
+}
+
+.pet-details  .operacoes button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet-details  .operacoes button svg{
+  margin-right: 20px;
+}
+
+.pet-details .operacoes button:hover {
+  background: #C96E23;
+}

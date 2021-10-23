@@ -39,6 +39,8 @@ export default function Pet () {
       })
     }, [clientId, petId])
 
+
+
     //pegar o nome do dono do pet
     let ownerName = localStorage.getItem('name')
 
@@ -122,7 +124,7 @@ export default function Pet () {
                 Editar
             </button>
 
-            <button type= "button" className= "red-button" onClick= {handleDeletePet}>
+            <button type= "button"  onClick= {handleDeletePet}>
                <span> <FiX size= {45} color= "#FFF"/></span>
             </button>
 

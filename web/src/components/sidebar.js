@@ -9,7 +9,7 @@ const Sidebar = () => {
   return (
     <aside className= "app-sidebar">
 
-      <Link>
+      <Link to= "/">
       <img src= {Logo} alt= "logo"/>
       </Link>
 
