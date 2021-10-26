@@ -20,9 +20,9 @@ const Routes =  () => {
      
       </Switch>
       <Switch>
-          <Route path= "/create" component={CreatePet}/>
+          <Route path= "/create" component= {CreatePet}/>
           <Route path= "/pets/:petId"  component= {Pet}/>
-          <Route path= "/pets/update" exact component={UpdatePet}/>
+         <Route path= "/update" component= {UpdatePet}/>
       </Switch>
  
  

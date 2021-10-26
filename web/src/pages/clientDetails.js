@@ -44,6 +44,8 @@ export default function ClientDetails () {
   //Guardar o nome do dono do pet
   localStorage.setItem('name', JSON.stringify(client.name))
 
+  
+
   return (
     <div id= "page-Client-Details">
       <Sidebar/>
@@ -69,7 +71,12 @@ export default function ClientDetails () {
               <h2>Email</h2>
                 <p> {client.email} </p>
             </div>
-    
+
+            <div className=  "clients-functions">
+              <Link to= "" >Editar Cadastro</Link>
+              <Link to= "" onClick="" >Excluir Cadastro</Link>
+            </div>
+                
           </div> 
               
            

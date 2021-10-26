@@ -39,7 +39,7 @@ padding: 15px 30px;
 border-radius: 20px; 
 
 width: 80%;
-height: 150px;
+height: 200px;
 }
 
 .client-details .client-details-content .titular {
@@ -100,6 +100,38 @@ height: 150px;
   padding: 2px;
   padding-right: 10px;
 }
+
+.client-details .client-details-content .clients-functions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+.client-details .client-details-content .clients-functions a {
+  border: 1px solid rgba(148, 144, 144, 0.727);
+  border-radius: 3px;
+
+  text-decoration: none;
+  color:  #12406a ;
+  font-weight: normal;
+
+  margin: 10px 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: backgorund-color 0.9s;
+}
+
+.client-details .client-details-content .clients-functions a svg {
+  margin-right: 20px;
+}
+
+.client-details .client-details-content .clients-functions a:hover {
+  background: rgba(162, 158, 158, 0.727);
+  color: #FFF
+}
+
 
 /*Pet list*/
 .client-details .title-pet {

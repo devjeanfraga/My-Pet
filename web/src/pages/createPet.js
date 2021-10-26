@@ -103,9 +103,17 @@ export default function CreatePet () {
               <input id= "weight" value= {weight} onChange= {event=> setWeight(event.target.value)}/>
             </div>
 
-            <div className= "input-block">
+            <div className= "sexo">
               <label htmlFor= "gender"> Sexo do Pet </label>
-              <input id= "weight" value= {gender} onChange= {event=> setGender(event.target.value)}/>
+                <div >
+                  <input id= "weight" type= "radio"  name= "gender" value= {gender} onChange= {event=> setGender(event.target.value = 'fêmea' )}/>
+                  <span>Fêmea</span>
+                </div>
+
+                <div>
+                  <input id= "weight" type= "radio"  name= "gender" value= {gender} onChange= {event=> setGender(event.target.value = 'macho')}/>
+                  <span>Macho</span>
+                </div>
             </div>
 
             <div className= "input-block">
