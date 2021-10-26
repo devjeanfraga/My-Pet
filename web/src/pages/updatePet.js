@@ -57,19 +57,21 @@ export default function UpdatePet () {
   });
 
     let clientId = localStorage.getItem('clientId')
-    if (!clientId) {
+    let petId = localStorage.getItem('petId')
+    if (!clientId && !petId) {
     return 
     }
 
   clientId = JSON.parse(clientId)
+  petId = JSON.parse(petId)
 
     console.log(data)
-    await api.post(`/clients/${clientId}/pets`, data)
-    alert('Cadastro efetuado com sucesso');
+    await api.post(`/clients/${clientId}/pets/${petId}`, data)
+    alert('Pet Atualizado com sucesso');
 
     
 
-    history.push('/clients')
+    history.push(`/pets/${petId}`)
 }
 
 
@@ -104,9 +106,17 @@ export default function UpdatePet () {
               <input id= "weight" value= {weight} onChange= {event=> setWeight(event.target.value)}/>
             </div>
 
-            <div className= "input-block">
-              <label htmlFor= "gender"> Sexo do Pet </label>
-              <input id= "weight" value= {gender} onChange= {event=> setGender(event.target.value)}/>
+            <div className= "sexo">
+              <label htmlFor= "gender"> Sexo </label>
+                <div >
+                  <input id= "weight" type= "radio"  name= "gender" value= {gender} onChange= {event=> setGender(event.target.value)}/>
+                  <span>Fêmea</span>
+                </div>
+
+                <div>
+                  <input id= "weight" type= "radio"  name= "gender" value= {gender} onChange= {event=> setGender(event.target.value)}/>
+                  <span>Macho</span>
+                </div>
             </div>
 
             <div className= "input-block">
@@ -125,20 +135,15 @@ export default function UpdatePet () {
         </fieldset>
 
         <div className= "operacoes">
-
-       
-        <button className= "confirm-button" type= "submit">
+          <button  type= "submit">
               Confirmar 
           </button>
 
-          <button type= "button" className= "red-button" onClick= {history.goBack()}>
+          <button type= "button"  onClick= {""}>
             <span> <FiX size= {45} color= "#FFF"/></span>
           </button>
-
         </div>
-          <button className= "confirm-button" type= "submit">
-              Confirmar 
-          </button>
+    
         </form>
       </main>
     </div>

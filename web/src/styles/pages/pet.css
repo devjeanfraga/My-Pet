@@ -193,6 +193,27 @@ width: 80%;
   justify-content: center;
   align-items: center;
 }
+
+.pet-details  .operacoes a {
+  height: 64px;
+  border: 0;
+  border-radius: 20px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  background: #FB933C;
+  color: #FFFFFF;
+  font-weight: 800;
+
+  transition: backgorund-color 0.3s;
+}
+
+.pet-details  .operacoes a > button {
+  width: 100%;
+}
+
 .pet-details  .operacoes button {
   height: 64px;
   border: 0;

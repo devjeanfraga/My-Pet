@@ -67,6 +67,38 @@ form.create-Pet-Form .input-block input {
   padding:  0px 16px;
 }
 
+form.create-Pet-Form .sexo {
+  display: grid;
+
+  grid-template-columns: 3fr 1fr 1fr ;
+  margin-top: 24px;
+}
+
+
+
+form.create-Pet-Form .sexo label {
+  color: #8fa7b3;
+  margin-bottom: 8px;
+ 
+
+  line-height: 36px;
+  font-size: 24px;
+
+  grid-column-start: 1;
+  grid-column-end: 4;
+
+}
+
+form.create-Pet-Form .sexo span {
+  margin-left: 10px;
+  color: #8fa7b3;
+  margin-bottom: 3px;
+ 
+
+  line-height: 26px;
+  font-size: 24px;
+}
+
 
 form.create-Pet-Form .input-block input[type='file'] {
   display: none;

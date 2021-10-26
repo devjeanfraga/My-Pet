@@ -4,7 +4,7 @@ import "../styles/pages/pet.css";
 import {FiUser, FiX} from 'react-icons/fi'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router";
+import { useParams, useHistory, Link } from "react-router-dom";
 
 
 
@@ -33,6 +33,9 @@ export default function Pet () {
     const {clientId, petId} = useParams()
     
     useEffect(()=>{
+
+      localStorage.setItem('petId', JSON.stringify(petId))
+
       api.get(`/clients/${clientId}/pets/${petId}`).then(response => {
         setPet(response.data)
         console.log(response)
@@ -56,6 +59,8 @@ export default function Pet () {
       return
     }
   } 
+
+
   
   return (
     <div id= "page-Pet">
@@ -119,11 +124,12 @@ export default function Pet () {
           </div>
           
           <div className= "operacoes">
-
-            <button type= "button">
-                Editar
-            </button>
-
+            
+            <Link to ="/update">
+              <button type= "button" onClick= {""} className= "update">
+                  Editar
+              </button>
+            </Link>
             <button type= "button"  onClick= {handleDeletePet}>
                <span> <FiX size= {45} color= "#FFF"/></span>
             </button>
