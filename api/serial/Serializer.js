@@ -1,5 +1,9 @@
 
 class Serial {
+  json (data) {
+    return JSON.stringify(data)
+  }
+
   objectFilter (data) {
     const newObject = {}
     

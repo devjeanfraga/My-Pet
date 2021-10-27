@@ -109,12 +109,12 @@ export default function UpdatePet () {
             <div className= "sexo">
               <label htmlFor= "gender"> Sexo do Pet </label>
                 <div >
-                  <input id= "weight" type= "radio"  name= "gender" value= {gender} onChange= {event=> setGender(event.target.value = 2)}/>
+                  <input id= "weight" type= "radio"  name= "gender" value= {gender} onChange= {event=> setGender(event.target.value = 1)}/>
                   <span>Fêmea</span>
                 </div>
 
                 <div>
-                  <input id= "weight" type= "radio"  name= "gender" value= {gender} onChange= {event=> setGender(event.target.value = 1)}/>
+                  <input id= "weight" type= "radio"  name= "gender" value= {gender} onChange= {event=> setGender(event.target.value = 2)}/>
                   <span>Macho</span>
                 </div>
             </div>

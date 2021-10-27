@@ -1,6 +1,6 @@
 class NotFound extends Error {
   constructor (name) {
-    const message = `campo ${name} não encontrado`
+    const message = ` ${name} não encontrado`
     super(message)
     this.name = 'Não encontrado'
     this.idErr = 0 

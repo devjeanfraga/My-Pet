@@ -3,6 +3,7 @@ const {urlencoded} = require('body-parser')
 
 const clientsRoutes = require('./clientRoutes')
 const petsRoutes = require('../routes/petsRoutes')
+const sexesRotes = require('./sexesRoutes')
 
 module.exports = app => {
   app.use(urlencoded({extended: false}))
@@ -10,6 +11,7 @@ module.exports = app => {
 
   app.use(clientsRoutes)
   app.use(petsRoutes)
+  app.use(sexesRotes)
   /*
   
   app.use(diagnosesRoutes)

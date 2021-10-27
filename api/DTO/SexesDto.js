@@ -1,8 +1,9 @@
-class SexesDto {
-  constructor () {
+const SexesServices = require('../services/Services')
 
-  }
+class SexesDto  {
+  
+
+  
 }
 
 
-module.exports =  SexesDto 

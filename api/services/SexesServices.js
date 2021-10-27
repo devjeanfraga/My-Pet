@@ -12,7 +12,7 @@ class SexesServices extends Services {
  
     return await db[this.model].findOrCreate({ where: field } )
     
-
+    
   }
   
 }
