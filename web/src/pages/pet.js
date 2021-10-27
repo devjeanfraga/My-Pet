@@ -125,7 +125,7 @@ export default function Pet () {
           
           <div className= "operacoes">
             
-            <Link to ="/update">
+            <Link to ="/update-pet">
               <button type= "button" onClick= {""} className= "update">
                   Editar
               </button>

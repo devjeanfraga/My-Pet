@@ -106,13 +106,14 @@ height: 200px;
   grid-template-columns: 1fr 1fr;
   column-gap: 5px;
 }
-.client-details .client-details-content .clients-functions a {
+.client-details .client-details-content .clients-functions .operation {
   border: 1px solid rgba(148, 144, 144, 0.727);
   border-radius: 3px;
 
   text-decoration: none;
   color:  #12406a ;
   font-weight: normal;
+  font-size: 20px;
 
   margin: 10px 10px;
 
@@ -123,11 +124,11 @@ height: 200px;
   transition: backgorund-color 0.9s;
 }
 
-.client-details .client-details-content .clients-functions a svg {
+.client-details .client-details-content .clients-functions .operation svg {
   margin-right: 20px;
 }
 
-.client-details .client-details-content .clients-functions a:hover {
+.client-details .client-details-content .clients-functions .operation:hover {
   background: rgba(162, 158, 158, 0.727);
   color: #FFF
 }

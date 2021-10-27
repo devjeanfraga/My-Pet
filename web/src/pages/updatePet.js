@@ -84,7 +84,7 @@ export default function UpdatePet () {
         <form onSubmit={handleSubmit}  className= "create-Pet-Form">
         <fieldset>
          
-          <legend> Atualizar do Pet </legend>
+          <legend> Atualizar Pet </legend>
 
             <div className= "input-block">
               <label htmlFor = "name"> Nome </label>

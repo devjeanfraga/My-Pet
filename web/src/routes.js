@@ -8,6 +8,7 @@ import Clients from './pages/clients.js';
 import ClientDetails from '../src/pages/clientDetails';
 import Landing from '../src/pages/landing';
 import UpdatePet from '../src/pages/updatePet';
+import UpdateClient from '../src/pages/updateClient';
 
 const Routes =  () => {
   return (
@@ -17,12 +18,12 @@ const Routes =  () => {
         <Route path= "/client-create" exact component= {CreateClient}/>
         <Route path= "/clients" exact component= {Clients}/> 
         <Route path= "/clients/:clientId" component= {ClientDetails} />    
-     
+        <Route path= "/update-client" component= {UpdateClient}/>
       </Switch>
       <Switch>
           <Route path= "/create" component= {CreatePet}/>
           <Route path= "/pets/:petId"  component= {Pet}/>
-         <Route path= "/update" component= {UpdatePet}/>
+         <Route path= "/update-pet" component= {UpdatePet}/>
       </Switch>
  
  

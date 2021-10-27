@@ -5,7 +5,7 @@ import api from '../services/api';
 import {useHistory} from 'react-router-dom';
 
 
-export default function CreateClient () {
+export default function UpdateClient () {
 
     const history = useHistory()
 
@@ -23,13 +23,19 @@ export default function CreateClient () {
         phone: String(phone),
         email: email
       }
-       await api.post('/clients', data)
+
+      let clientId = localStorage.getItem('clientId')
+      if(!clientId) {
+        return
+      }
+      clientId = JSON.parse(clientId)
+       await api.put(`/clients/${clientId}`, data)
       
       console.log(data)
-      alert('Cadastro efetuado com sucesso');
+      alert('Cadastro Atualizado com sucesso');
   
   
-     history.push('/clients')
+     history.push(`/clients/${clientId}`)
   }
 
   return (
@@ -40,7 +46,7 @@ export default function CreateClient () {
         <form onSubmit= {handleSubmit}   className= "create-client-Form">
         <fieldset>
          
-          <legend>Cadastro do Cliente</legend>
+          <legend>Atualizar Cliente</legend>
 
             <div className= "input-block">
               <label htmlFor = "name"> Nome </label>

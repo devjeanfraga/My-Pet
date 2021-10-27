@@ -5,7 +5,7 @@ import {FiUser} from 'react-icons/fi'
 import {MdPets} from 'react-icons/md'
 import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
-import {Link, useParams } from "react-router-dom"
+import {Link, useParams, useHistory } from "react-router-dom"
 //import Clients from "./clients.js";
 
 
@@ -13,7 +13,7 @@ import {Link, useParams } from "react-router-dom"
 
 
 export default function ClientDetails () {
-
+  const history = useHistory()
 
   const Client = {
     id: Number(),
@@ -33,7 +33,8 @@ export default function ClientDetails () {
 
   useEffect(() => {
 
-    localStorage.setItem('clientId', JSON.stringify(clientId))
+    
+
 
     api.get(`/clients/${clientId}`).then(res => {
       setClient(res.data)
@@ -41,10 +42,24 @@ export default function ClientDetails () {
     })
   }, [clientId])
 
-  //Guardar o nome do dono do pet
+  
+
+  //Guardar o nome e  o Id do dono do pet
   localStorage.setItem('name', JSON.stringify(client.name))
 
-  
+  localStorage.setItem('clientId', JSON.stringify(clientId))
+
+  async function handlesDeleteClient () {
+    const answer = window.confirm('Deseja excluir o cadastro?');
+      if(answer === true){
+        await api.delete(`/clients/${clientId}`)
+        alert("Cadastro Excluído com sucesso")
+        history.push('/clients')
+       
+    }else{
+      return
+    }
+  }
 
   return (
     <div id= "page-Client-Details">
@@ -56,7 +71,7 @@ export default function ClientDetails () {
 
             <div className= "titular"> 
               <h3>
-                <span><FiUser size={24} color= "#12406a"/> {client.name} </span>
+                <span><FiUser size={24} color= "#12406a"/> {client.name} | ID - {client.id} </span>
               </h3>
             </div>
               
@@ -73,8 +88,13 @@ export default function ClientDetails () {
             </div>
 
             <div className=  "clients-functions">
-              <Link to= "" >Editar Cadastro</Link>
-              <Link to= "" onClick="" >Excluir Cadastro</Link>
+              <Link to= "/update-client" className= "operation">
+                Editar Cadastro
+              </Link>
+
+              <button type= "button" className= "operation"  onClick= { handlesDeleteClient } >
+                Excluir Cadastro
+              </button>
             </div>
                 
           </div> 

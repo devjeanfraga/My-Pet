@@ -6,15 +6,15 @@ import api from "../services/api.js";
 import React, { useState, useEffect } from "react";
 
 
-import {Link, useRouteMatch, Route, useParams} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 
 
 
 
 export default function Clients () {
-  const {clientId} = useParams()
-  const {url, path}= useRouteMatch()
+ 
+ // const {url, path}= useRouteMatch()
 
 
   const Clients =   {
@@ -24,6 +24,7 @@ export default function Clients () {
   }
 
 const [clients, setClients] =  useState([Clients])
+const [restoreClient, setRestoreClient] = useState('')
 
 
 
@@ -35,6 +36,18 @@ useEffect(() => {
       console.log(res.data)
     })
 }, [])
+
+
+  async function handleRestore () {
+    if(!restoreClient) {
+      return  window.alert("Id não encontrado")
+    } else {
+      await api.post(`/clients/${restoreClient}/restore`)
+      window.alert("Cadastro restaurado com Sucesso")
+      window.location.reload()
+    }
+
+  }
   
   return (
     <div id= "page-Owners">
@@ -64,7 +77,25 @@ useEffect(() => {
               )
             })}     
    
+
+            <div className= "restore-client-Form">
+             
+                  <h2>Restaurar Cadastro</h2>
+                  <div className= "input-block">
+                    <label>Por gentileza, digite o ID do cliente</label>
+                    <input id= "clientId" name= "clientId" value= {restoreClient} onChange= {(e)=> {setRestoreClient(e.target.value)}}/>
+                  </div>
+               
+                <button type= "submit" className= "confirm-button" onClick= {handleRestore}>
+                  Restaurar 
+                </button>
+             
+            </div>
+
+
         </div>
+
+
       </main>
     </div>
 
