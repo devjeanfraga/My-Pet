@@ -7,6 +7,17 @@
  * Foreing Keys
  * Routes
  * Consumo de API's
+
+# Tecnologias 
+
+ * Node.js
+ * Express.js
+ * Sequelize-Cli
+ * MySQL
+ * React.js
+ * JavaScript
+ * HTML
+ * CSS
  
  
  ## Soft Delete com recuperação de dados Client
@@ -68,3 +79,4 @@ uma análise com mais atenção aos possíveis cenários que as tables eventualm
 
 *  Retornar cadastro sem mostrar dados sensíveis 
 ![gif Layout](https://github.com/Azkabann/My-Pet/blob/master/valida%C3%A7%C3%A3o%20de%20dados.gif?raw=true)
+
