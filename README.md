@@ -1,16 +1,46 @@
-# My-Pet
-* O projeto cuja  função é manipular dados do database para api , tendo com exemplo uma clínica de pets.
+<img src="https://github.com/JeanFragaJS/My-Pet/blob/master/imgGitHub/logo.png?raw=true" />
+
+## Aprendizados no My-Pet:
+ * CRUD
+ * Associações (One To One - Many To Many - One To Many - Many To One )
+ * Soft Delete
+ * Foreing Keys
+ * Routes
+ * Consumo de API's
  
-#### Associações
+ 
+ ## Soft Delete com recuperação de dados Client
+ <img src="https://github.com/JeanFragaJS/My-Pet/blob/master/imgGitHub/mp_6.gif?raw=true"  width="464" height="344" />
+ 
+ ## Create Client
+ <img src="https://github.com/JeanFragaJS/My-Pet/blob/master/imgGitHub/mp_1.gif?raw=true"  width="462" height="242" />
+ 
+  ## Update Client
+ <img src="https://github.com/JeanFragaJS/My-Pet/blob/master/imgGitHub/mp_5.gif?raw=true"  width="464" height="349" />
+ 
+ 
+
+ 
+ 
+  ## Create Pet
+ <img src="https://github.com/JeanFragaJS/My-Pet/blob/master/imgGitHub/mp_2.gif?raw=true"  width="463" height="316" />
+ 
+ ##  Update Pet
+ <img src="https://github.com/JeanFragaJS/My-Pet/blob/master/imgGitHub/mp_3.gif?raw=true"  width="463" height="316" />
+ 
+  ##  Delete Pet
+ <img src="https://github.com/JeanFragaJS/My-Pet/blob/master/imgGitHub/mp_4.gif?raw=true"  width="463" height="316" />
+ 
+ 
+ 
+ 
+## Associações
 * Primeirio faço o cadastro do cliente. (Um cliente para muitos pets | Um para muitos)
 * Em seguida faço o cadastro do pet associado ao cliente. (Um pet para um cliente | Um para um)
 * Também crio as imagens. (Várias imagens para um pet | Muitos para um)  
 
-Minha dificuldade foi fazer com que uma tabela recebesse apenas chaves estrangeiras de outras duas tabelas, no caso o sexo do pet e o próprio pet.
-
-Sendo assim: 
-* Um pet-id para um cliente | Um para Um
-
+##### Foreing Keys
+* criação de table para os sexos dos animais 
 * Muitos pets para muitos sexos e vice versa |  Muitos para Muitos. 
 
 
