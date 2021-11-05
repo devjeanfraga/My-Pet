@@ -4,6 +4,7 @@ const ClientsController = require('../controllers/ClientsController')
 const router = Router()
 
 
+
 router.post('/clients', ClientsController.create)
 router.get('/clients', ClientsController.show)
 router.get('/clients/:clientId', ClientsController.index)

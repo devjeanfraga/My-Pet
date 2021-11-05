@@ -6,6 +6,7 @@ const serializer = new SerialClient()
 
 
 
+
 class ClientsController {
 
   static async create (req, res) {
