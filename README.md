@@ -20,7 +20,7 @@
  * CSS
  
  
- ## Soft Delete com recuperação de dados Client
+ ## Soft Delete com recuperação de dados
  <img src="https://github.com/JeanFragaJS/My-Pet/blob/master/imgGitHub/mp_6.gif?raw=true"  width="464" height="344" />
  
  ## Create Client
