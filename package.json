@@ -7,7 +7,7 @@
   "author": "Jean Fraga <jeanfragoli395@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon api/index.js"
+    "start": "node api/index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
