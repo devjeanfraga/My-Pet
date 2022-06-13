@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express =  require('express')
 const routes = require('./routes')
 const multer = require('multer')
@@ -30,6 +31,8 @@ app.use((erro, req, res, next) =>{
     })
 })
 
-app.listen(3838, () => console.log(' Api run !!!'))
+const port =  process.env.PORT || 3838;
+
+app.listen(port, () => console.log(`API run on ${port}`))
 
 module.exports = app
