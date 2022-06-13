@@ -32,4 +32,4 @@ app.use((erro, req, res, next) =>{
 
 app.listen(3838, () => console.log(' Api run !!!'))
 
-module.exports= app
+module.exports = app
