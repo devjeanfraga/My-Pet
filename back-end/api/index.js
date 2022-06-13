@@ -5,7 +5,7 @@ const multer = require('multer')
 const storage = require('./config/uploads')
 const path = require('path')
 const cors = require('cors')
-const {NotFound, InvalidFields, DataNotProvided} =require('../api/errors')
+const {NotFound, InvalidFields, DataNotProvided} =require('./errors')
 
 
 const app = express()
